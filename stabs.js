@@ -18,26 +18,26 @@
             f=d.length;
 
         while(f--){
-        var j=d[f].className.split(" "),
-            v=j.indexOf("tabpane"),
-            w=j.indexOf("tab"),
-            y=j.indexOf("active");
-
-        if(d[f]!=c&&w!=-1){
-          d[f].className="tab";
+          var j=d[f].className.split(" "),
+              v=j.indexOf("tabpane"),
+              w=j.indexOf("tab"),
+              y=j.indexOf("active");
+  
+          if(d[f]!=c&&w!=-1){
+            d[f].className="tab";
+          }
+          if(d[f]!=c&&v!=-1&&y!=-1){
+            d[f].className="tabpane";
+          }
         }
-        if(d[f]!=c&&v!=-1&&y!=-1){
-          d[f].className="tabpane";
-        }
-      }
 
-      if(c.className==="tab"||"tab active"){
-        var arrtabs=Array.prototype.slice.call(tabs),
-            idx    =arrtabs.indexOf(c);
-        c.className="tab active";
-        tabpanes[idx].className="tabpane active";
-      }
-    });
+        if(c.className==="tab"||"tab active"){
+          var arrtabs=Array.prototype.slice.call(tabs),
+              idx    =arrtabs.indexOf(c);
+          c.className="tab active";
+          tabpanes[idx].className="tabpane active";
+        }
+      });
+    }
   }
-}
 })();
