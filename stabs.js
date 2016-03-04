@@ -4,7 +4,7 @@
       z           =tabcontainer.length;
 
   while(z--){
-    var t       =tabcontainer[z],
+    let t       =tabcontainer[z],
         tabs    =t.querySelectorAll('.tab'),
         a       =tabs.length,
         tabpanes=t.querySelectorAll('.tabpane'),
