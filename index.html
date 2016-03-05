@@ -100,13 +100,12 @@
   var tabcontainer=document.querySelectorAll('.tabcontainer'),
       z           =tabcontainer.length;
   
-  function stabs(e){
+  function stabs(){
       var t       =tabcontainer[z],
           tabs    =t.querySelectorAll('.tab'),
           a       =tabs.length,
           tabpanes=t.querySelectorAll('.tabpane'),
           b       =tabpanes.length;
-      e.stopPropagation();
       
       function getChildren(n,skipMe){
         var r=[];
@@ -120,11 +119,10 @@
         return getChildren(n.parentNode.firstChild, n);
       }
     
-      function tabclick(e){
+      function tabclick(){
         var c=this;
         var d=getSiblings(c);
         var f=d.length;
-        e.stopPropagation();
   
         while(f--){
           var j=d[f].className.split(" "),
