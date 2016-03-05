@@ -100,12 +100,13 @@
   var tabcontainer=document.querySelectorAll('.tabcontainer'),
       z           =tabcontainer.length;
   
-  function stabs(){
+  function stabs(e){
       var t       =tabcontainer[z],
           tabs    =t.querySelectorAll('.tab'),
           a       =tabs.length,
           tabpanes=t.querySelectorAll('.tabpane'),
           b       =tabpanes.length;
+      e.stopPropagation();
       
       function getChildren(n,skipMe){
         var r=[];
