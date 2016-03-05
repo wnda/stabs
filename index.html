@@ -119,10 +119,11 @@
         return getChildren(n.parentNode.firstChild, n);
       }
     
-      function tabclick(){
+      function tabclick(e){
         var c=this;
         var d=getSiblings(c);
         var f=d.length;
+        e.stopPropagation();
   
         while(f--){
           var j=d[f].className.split(" "),
@@ -144,7 +145,7 @@
         }
       }
       while(a--){
-        tabs[a].addEventListener("click",tabclick,true);
+        tabs[a].addEventListener("click",tabclick,false);
       }
     }
   while(z--){
