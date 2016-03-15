@@ -1,6 +1,6 @@
 (function(){
   "use strict";
-  var tabcontainer=document.querySelectorAll('.tabcontainer'),
+  var tabcontainer=document.getElementsByClassName('tabcontainer'),
       z           =tabcontainer.length;
   
   function stabs(){
@@ -10,15 +10,14 @@
           tabpanes=t.querySelectorAll('.tabpane'),
           b       =tabpanes.length;
       
-      function getChildren(n, skipMe){
-        var r = [];
-        for ( ; n; n = n.nextSibling )
-          if ( n.nodeType == 1 && n != skipMe)
-          r.push( n );
+      function getChildren(n,skipMe){
+        var r=[];
+        for ( ; n; n=n.nextSibling)
+          if(n.nodeType===1&&n!=skipMe)
+          r.push(n);
           return r;
       }
-
-      function getSiblings(n) {
+      function getSiblings(n){
         return getChildren(n.parentNode.firstChild, n);
       }
     
@@ -34,16 +33,16 @@
               y=j.indexOf("active");
     
           if(d[f]!=c&&w!=-1){
-            d[f].className="tab";
+            d[f].classList.remove("active");
           }
           if(d[f]!=c&&v!=-1&&y!=-1){
-            d[f].className="tabpane";
+            d[f].classList.remove("active");
           }
         }
         if(c.className==="tab"||"tab active"){
           var idx=Array.prototype.indexOf.call(tabs,c);
-          c.className="tab active";
-          tabpanes[idx].className="tabpane active";
+          c.classList.add("active");
+          tabpanes[idx].classList.add("active");
         }
       }
       while(a--){
