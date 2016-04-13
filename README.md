@@ -1,8 +1,12 @@
 # stabs
-This is a bizarre implementation of tabs in JavaScript.
+This is a weird and bad implementation of tabs in JavaScript.
 
-This is not exactly a well-formed module or plugin, but it will pick up any designated tab-container element on launch and it will enable tabbed navigation successfully for each case.
+It's not a well-formed module or plugin
 
-tabcontainers can be nested, so if for some insane reason you want tabs in a tab pane, it'll work.
+but it will pick up any designated tab-container element and it will enable tabbed navigation successfully in each case.
 
-performance, well, it's not horribly slow, but I'm sure it could do with improvement.
+tab-containers can be nested, so if for some insane reason you want tabs in a tab pane, it'll work.
+
+performance, well, it's not bad, but I'm sure it could do with improvement.
+
+it's 50 lines before minification.
