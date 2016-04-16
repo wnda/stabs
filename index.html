@@ -31,10 +31,12 @@ h2{font-size:32px;color:#EE113A;letter-spacing:-2px;border-bottom:#EE113A 1px do
 .tab:last-of-type{margin-right:0}
 .tab.active{color:#EE113A;border-color:#EE113A;box-shadow:4px 4px #EE113A}
 .tabpane{display:none;color:#EE113A;font-size:16px;text-align:left;border:4px solid #EE113A;box-shadow:4px 4px #EE113A}
-.tabpane.active{display:block;animation:flicker .4s cubic-bezier(.4,1,.2,1) forwards}
+.tabpane.active{display:block}
 code{font-family:Cousine,Consolas,Menlo,monospace!important;font-weight:700;font-size:14px;color:#20B2AA}
 p{margin-bottom:.6rem}
-@keyframes flicker{0%{opacity:0}25%{opacity:.1}50%{opacity:.5}95%{opacity:.1}99%{opacity:.5}100%{opacity:1}}
+h1,.tabcontainer{animation:flicker .4s cubic-bezier(.4,1,.2,1) forwards}
+tabcontainer{animation-delay:.6s}
+@keyframes flicker{0%{opacity:0}75%{opacity:.1}85%{opacity:.5}95%{opacity:.1}99%{opacity:.5}100%{opacity:1}}
 </style>
 </head>
 <body>
@@ -80,10 +82,10 @@ p{margin-bottom:.6rem}
   </div>
   <div class="tabpane">
     <h2>FAQs</h2>
-    <p>Q. What's the IE compatibility like?<br />&rarr; A. IE9&mdash;IE8 if you polyfill <code>classList</code> and use <code>attachEvent</code>.</p>
-    <p>Q. Why <code>classList</code>?<br />&rarr; A. I experimented with <code>className</code> but the code was horribly ugly and inefficient.</p>
-    <p>Q. Who wrote this lib?<br />&rarr; A. <a href="https://amdouglas.com">A. M. Douglas</a></p>
-    <p>Q. Is this on GitHub?<br />&rarr; A. <a href="https://github.com/wnda/stabs">wnda</a></p>
+    <details><summary>What's the IE compatibility like?</summary>IE9&mdash;IE8 if you polyfill <code>classList</code> and use <code>attachEvent</code>.</details>
+    <details><summary>Why <code>classList</code>?</summary>I experimented with <code>className</code> but the code was horribly ugly and inefficient.</details>
+    <details><summary>Who wrote this lib?</summary><a href="https://amdouglas.com">A. M. Douglas, a freelance web developer based in Leeds, UK.</a></details>
+    <details><summary>Is this on GitHub?</summary><a href="https://github.com/wnda/stabs">https://github.com/wnda/stabs</a></details>
   </div>
 </div>
 <script>
