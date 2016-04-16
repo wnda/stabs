@@ -30,9 +30,10 @@ h2{font-size:32px;color:hsl(349,86%,50%)}
 .tab:last-of-type{margin-right:0}
 .tab.active{color:hsl(349,86%,50%);border-color:hsl(349,86%,50%);box-shadow:4px 4px hsl(349,86%,50%);}
 .tabpane{display:none;color:hsl(349,86%,50%);font-size:16px;text-align:left;border:4px solid hsl(349,86%,50%);box-shadow:4px 4px hsl(349,86%,50%);}
-.tabpane.active{display:block}
+.tabpane.active{display:block;-webkit-animation:flicker 200ms cubic-bezier(.2,1,.3,1) forwards;-moz-animation:flicker 200ms cubic-bezier(.2,1,.3,1) forwards;animation:flicker 200ms cubic-bezier(.2,1,.3,1) forwards}
 code{font-family:Cousine,Consolas,Menlo,monospace!important}
 p{margin-bottom:.6rem}
+@-webkit-keyframes flicker{0%{opacity:0}75%{opacity:.1}85%{opacity:.5}95%{opacity:.1}99%{opacity:.5}100%{opacity:1}}@-moz-keyframes flicker{0%{opacity:0}75%{opacity:.1}85%{opacity:.5}95%{opacity:.1}99%{opacity:.5}100%{opacity:1}}@-ms-keyframes flicker{0%{opacity:0}75%{opacity:.1}85%{opacity:.5}95%{opacity:.1}99%{opacity:.5}100%{opacity:1}}@-o-keyframes flicker{0%{opacity:0}75%{opacity:.1}85%{opacity:.5}95%{opacity:.1}99%{opacity:.5}100%{opacity:1}}@keyframes flicker{0%{opacity:0}75%{opacity:.1}85%{opacity:.5}95%{opacity:.1}99%{opacity:.5}100%{opacity:1}}
 </style>
 </head>
 <body>
