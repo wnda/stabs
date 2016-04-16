@@ -40,7 +40,7 @@
             d[f].classList.remove("active");
           }
         }
-        if (c.className === "tab" || "tab active"){
+        if (c.className === "tab"){
           c.classList.add("active");
           tabpanes[m].classList.add("active");
         }
