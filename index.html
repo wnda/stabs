@@ -14,10 +14,11 @@
 .block{margin:8px auto}
 .cell{background:hsl(240,4%,91%);border-top:1px solid hsl(240,4%,63%)}
 .tabcontainer{display:block;width:100%}
-.tab{display:inline-block;padding:16px;font-weight:700;border:3px solid hsl(240,4%,63%)}
-.tab:first-child{border-right:0}
+.tab{display:inline-block;padding:16px;font-weight:700;border:3px solid hsl(240,4%,63%);border-right:0}
 .tab:last-child{border-left:0}
 .tab.active{background:crimson;color:white;border-color:crimson}
+.tabpane:before,.tabpane:after{content:'';display:table}
+.tabpane:after{clear:both}
 .tabpane{display:none;width:100%}
 .tabpane.active{display:block}
 </style>
