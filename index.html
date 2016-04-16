@@ -22,46 +22,55 @@ a{color:inherit;cursor:pointer;text-decoration:none}textarea{resize:vertical}inp
 .cell{background:hsl(240,4%,91%)}
 h1,.tabcontainer{max-width:768px;margin:0 auto}
 h1{font-size:64px;color:hsl(240,4%,71%)}
+h2{font-size:32px;color:hsl(349,86%,50%)}
 .tabcontainer{display:block;font-size:0}
-.tab,.tabpane{color:hsl(240,4%,71%);padding:16px;font-size:16px}
-.tab{display:inline-block;margin-bottom:8px;margin-right:8px;font-weight:700;border:4px solid hsl(240,4%,71%);box-shadow:4px 4px hsl(240,4%,71%)}
+.tab,.tabpane{padding:16px;font-size:16px}
+.tab{display:inline-block;margin-bottom:8px;margin-right:8px;font-weight:700;color:hsl(240,4%,71%);border:4px solid hsl(240,4%,71%);box-shadow:4px 4px hsl(240,4%,71%)}
 .tab:last-of-type{margin-right:0}
 .tab.active{color:hsl(349,86%,50%);border-color:hsl(349,86%,50%);box-shadow:4px 4px hsl(349,86%,50%);}
-.tabpane{display:none;width:100%;font-size:16px;text-align:left;border:4px solid hsl(349,86%,50%);box-shadow:4px 4px hsl(349,86%,50%);}
+.tabpane{display:none;color:hsl(349,86%,50%);font-size:16px;text-align:left;border:4px solid hsl(349,86%,50%);box-shadow:4px 4px hsl(349,86%,50%);}
 .tabpane.active{display:block}
 </style>
 </head>
 <body>
 <h1>stabs.js</h1>
 <div class="tabcontainer">
-<button class="tab active">Tab 1</button>
-<button class="tab">Tab 2</button>
-<button class="tab">Tab 3</button>
-<button class="tab">Tab 4</button>
-<button class="tab">Tab 5</button>
+<button class="tab active">What?</button>
+<button class="tab">Why?</button>
+<button class="tab">How?</button>
+<button class="tab">IE?</button>
+<button class="tab">More?</button>
 <div class="tabpane active">
   <div class="block">
-    1
+    <h2>What?</h2>
+    <p>stabs.js is about 50 lines of JavaScript for creating tabbed sections of your webpage.</p>
   </div>
 </div>
 <div class="tabpane">
   <div class="block">
-    2
+    <h2>Why?</h2>
+    <p>Bootstrap requires jQuery. Other alternatives tend to require jQuery. Vanilla JS alternatives navigate to hash fragments in the URL bar.</p>
+    <p>I didn't want those things.</p>
   </div>
 </div>
 <div class="tabpane">
   <div class="block">
-    3
+    <h2>How?</h2>
+    <p>stabs.js uses only vanilla JavaScript primarily relying on <code>while</code> loops and <code>classList</code>.</p>
   </div>
 </div>
 <div class="tabpane">
   <div class="block">
-    4
+    <h2>IE?</h2>
+    <p>IE9, or IE8 if you polyfill <code>classList</code>.</p>
+    <p>I experimented with <code>className</code> but the code was horribly ugly and inefficient.</p>
   </div>
 </div>
 <div class="tabpane">
   <div class="block">
-    5
+    <h2>More?</h2>
+    <p>Developer: <a href="https://amdouglas.com">A. M. Douglas</a></p>
+    <p>GitHub: <a href="https://github.com/wnda/stabs">wnda</a></p>
   </div>
 </div>
 
