@@ -37,57 +37,54 @@ p{margin-bottom:.6rem}
 </head>
 <body>
 <style scoped>
-@font-face{font-family:"SofiaPro";font-display:fallback;font-weight:400;font-style:normal;font-variant:normal;src:url("https://wnda.github.io/picuse-concept/SofiaProRegular.woff") format("woff")}@font-face{font-family:'SofiaPro';font-display:fallback;font-weight:700;font-style:normal;font-variant:normal;src:url("https://wnda.github.io/picuse-concept/SofiaProBold.woff") format("woff")}
-:root,html,body{font-family:"SofiaPro",Roboto,-apple-system,caption}
+@font-face{font-family:"SofiaPro";font-display:fallback;font-weight:400;font-style:normal;font-variant:normal;src:url("https://wnda.github.io/picuse-concept/SofiaProRegular.woff") format("woff")}@font-face{font-family:'SofiaPro';font-display:fallback;font-weight:700;font-style:normal;font-variant:normal;src:url("https://wnda.github.io/picuse-concept/SofiaProBold.woff") format("woff")}:root,html,body{font-family:"SofiaPro",Roboto,-apple-system,caption}
 </style>
 <h1>stabs.js</h1>
 <div class="tabcontainer">
-<button class="tab active">What?</button>
-<button class="tab">Why?</button>
-<button class="tab">How?</button>
-<button class="tab">IE?</button>
-<button class="tab">More?</button>
-<div class="tabpane active">
-  <h2>What?</h2>
-  <p>stabs.js is about 50 lines of JavaScript for creating tabbed sections of your webpage.</p>
-  <p>It's not something I'm proud of. It's not friendly, it doesn't have some clean API and it's not a module.</p>
-  <p>You stick it at the bottom of the <code>&lt;body&gt;</code> and name your tabbed elements according to the lib's requirements.</p>
-</div>
-<div class="tabpane">
-  <h2>Why?</h2>
-  <p>Bootstrap and other libraries/frameworks tend to require jQuery. Not surprising. My 50 lines of vanilla would probably be about 8 lines of jQuery.</p>
-  <p>However, it is 2016 and ES5/ES6 are gaining traction, and the ES3 that is actually supported in the real world is now largely standardised even in IE.</p>
-  <p>There are of course some vanilla JS alternatives, but they all navigate to hash fragments in the URL bar, which is a feature I explicitly didn't want.</p>
-  <p>I wanted something lean, robust and amenable to nesting because, though I do not tend to nest things (I'm not a fan of complexity) I do believe it is important to be prepared for the day when nesting will be required.</p>
-  <p>Thus, stabs.js was born.</p>
-</div>
-<div class="tabpane">
-  <h2>How?</h2>
-  <p>stabs.js uses only vanilla JavaScript primarily relying on <code>for</code> loops and <code>classList</code>.</p>
-  <p>This small lib loops through everything in the DOM with a class of &ldquo;tabcontainer&rdquo; and then adds event listeners to everything that is a &ldquo;tab&rdquo; in that tabcontainer.</p>
-  <p>These event listeners wait for a tab to be clicked and then, if the tab is not active, it and its corresponding tabpane are set to active and all other tabs/tabpanes have their active status removed.</p>
-  <p>This might seem like cheating, but the approach could easily be adapted to manipulate styles directly. However, appending and removing classes is ultimately more efficient, and also enables the exact way tabs are displayed/hidden to be very flexible to the CSS-savvy dev.</p>
-  <p>This is ultimately the simplest way to work with tabs.</p>
-</div>
-<div class="tabpane">
-  <h2>Using it?</h2>
-  <p>Create an element with a class of &ldquo;tabcontainer&rdquo;.</p>
-  <p>Within that, create elements with a class of &ldquo;tab&rdquo;.</p>
-  <p>For each &ldquo;tab&rdquo;, make sure you create a corresponding element with a class of &ldquo;tabpane&rdquo;&mdash;all within the &ldquo;tabcontainer&rdquo;.</p>
-  <p>Include the library at the bottom of your <code>&lt;body&gt;</code> and it'll do its job.</p>
-</div>
-<div class="tabpane">
-  <h2>More info?</h2>
-  <p>IE9, or IE8 if you polyfill <code>classList</code>.</p>
-  <p>I experimented with <code>className</code> but the code was horribly ugly and inefficient.</p>
-  <p>Developer: <a href="https://amdouglas.com">A. M. Douglas</a></p>
-  <p>GitHub: <a href="https://github.com/wnda/stabs">wnda</a></p>
-</div>
-
+  <button class="tab active">What?</button>
+  <button class="tab">Why?</button>
+  <button class="tab">How?</button>
+  <button class="tab">IE?</button>
+  <button class="tab">More?</button>
+  <div class="tabpane active">
+    <h2>What?</h2>
+    <p>stabs.js is about 30 lines of JavaScript for creating tabbed sections of your webpage.</p>
+    <p>It's not something I'm proud of. It's not friendly, it doesn't have some clean API and it's not a module.</p>
+    <p>You stick it at the bottom of the <code>&lt;body&gt;</code> and name your tabbed elements according to the lib's requirements.</p>
+  </div>
+  <div class="tabpane">
+    <h2>Why?</h2>
+    <p>Bootstrap and other libraries/frameworks tend to require jQuery. Not surprising. My 50 lines of vanilla would probably be about 8 lines of jQuery.</p>
+    <p>However, it is 2016 and ES5/ES6 are gaining traction, and the ES3 that is actually supported in the real world is now largely standardised even in IE.</p>
+    <p>There are of course some vanilla JS alternatives, but they all navigate to hash fragments in the URL bar, which is a feature I explicitly didn't want.</p>
+    <p>I wanted something lean, robust and amenable to nesting because, though I do not tend to nest things (I'm not a fan of complexity) I do believe it is important to be prepared for the day when nesting will be required.</p>
+    <p>Thus, stabs.js was born.</p>
+  </div>
+  <div class="tabpane">
+    <h2>How?</h2>
+    <p>stabs.js uses only vanilla JavaScript primarily relying on <code>for</code> loops and <code>classList</code>.</p>
+    <p>This small lib loops through everything in the DOM with a class of &ldquo;tabcontainer&rdquo; and then adds event listeners to everything that is a &ldquo;tab&rdquo; in that tabcontainer.</p>
+    <p>These event listeners wait for a tab to be clicked and then, if the tab is not active, it and its corresponding tabpane are set to active and all other tabs/tabpanes have their active status removed.</p>
+    <p>This might seem like cheating, but the approach could easily be adapted to manipulate styles directly. However, appending and removing classes is ultimately more efficient, and also enables the exact way tabs are displayed/hidden to be very flexible to the CSS-savvy dev.</p>
+    <p>This is ultimately the simplest way to work with tabs.</p>
+  </div>
+  <div class="tabpane">
+    <h2>Using it?</h2>
+    <p>Create an element with a class of &ldquo;tabcontainer&rdquo;.</p>
+    <p>Within that, create elements with a class of &ldquo;tab&rdquo;.</p>
+    <p>For each &ldquo;tab&rdquo;, make sure you create a corresponding element with a class of &ldquo;tabpane&rdquo;&mdash;all within the &ldquo;tabcontainer&rdquo;.</p>
+    <p>Include the library at the bottom of your <code>&lt;body&gt;</code> and it'll do its job.</p>
+  </div>
+  <div class="tabpane">
+    <h2>More info?</h2>
+    <p>IE9, or IE8 if you polyfill <code>classList</code>.</p>
+    <p>I experimented with <code>className</code> but the code was horribly ugly and inefficient.</p>
+    <p>Developer: <a href="https://amdouglas.com">A. M. Douglas</a></p>
+    <p>GitHub: <a href="https://github.com/wnda/stabs">wnda</a></p>
+  </div>
 </div>
 <script>
 (function(){function e(){function e(c){c=c.target;for(var d=Array.prototype.indexOf.call(f,c),a=g.querySelectorAll(".active"),b=a.length;b--;)a[b].classList.remove("active");c.classList.add("active");h[d].classList.add("active")}for(var g=d[a],f=g.querySelectorAll(".tab"),b=f.length,h=g.querySelectorAll(".tabpane");b--;)f[b].addEventListener("click",e,!1)}for(var d=document.querySelectorAll(".tabcontainer"),a=d.length;a--;)e()})();
-//(function(){function g(){function g(){for(var a=this.parentNode.firstChild,b=[];a;a=a.nextSibling)1===a.nodeType&&a!=this&&b.push(a);for(var a=b.length,d=Array.prototype.indexOf.call(h,this);a--;){var c=b[a].className.split(" "),e=c.indexOf("tabpane"),f=c.indexOf("tab"),c=c.indexOf("active");b[a]!=this&&-1!=f&&b[a].classList.remove("active");b[a]!=this&&-1!=e&&-1!=c&&b[a].classList.remove("active")}this.classList.add("active");l[d].classList.add("active")}for(var f=d[e],h=f.querySelectorAll(".tab"),k=h.length,l=f.querySelectorAll(".tabpane");k--;)h[k].addEventListener("click",g,!1)}for(var d=document.getElementsByClassName("tabcontainer"),e=d.length;e--;)g()})();
 </script>
 </body>
 </html>
