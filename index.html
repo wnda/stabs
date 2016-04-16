@@ -17,9 +17,9 @@ body{margin:0 auto;padding:8px;padding:.5rem;color:hsl(240,60%,6.9%);-webkit-tex
 ::-webkit-scrollbar-track{background-color:transparent}
 details,main,summary{display:block}
 button{cursor:pointer;background:0 0;-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;-o-appearance:none;appearance:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-select:none;user-select:none;-webkit-border-radius:0}
-a{color:inherit;cursor:pointer;text-decoration:none}textarea{resize:vertical}input,textarea{-webkit-border-radius:0}.grid{display:block;margin:-8px;margin:-.5rem}.grid::before,.grid::after{display:table;content:''}.grid::after{clear:both}.cell{display:block;float:left;position:relative;min-height:192px;min-height:12rem;padding:8px;padding:.5rem;margin:0;margin:calc(1rem / 2)}.cell-header{min-height:1rem}.cell,.cell-sm-1,.cell-sm-2,.cell-sm-3,.cell-sm-4,.cell-sm-5,.cell-sm-6,.cell-sm-7,.cell-sm-8,.cell-sm-9,.cell-sm-10,.cell-sm-11,.cell-sm-12,.cell-md-1,.cell-md-2,.cell-md-3,.cell-md-4,.cell-md-5,.cell-md-6,.cell-md-7,.cell-md-8,.cell-md-9,.cell-md-10,.cell-md-11,.cell-md-12,.cell-lg-1,.cell-lg-2,.cell-lg-3,.cell-lg-4,.cell-lg-5,.cell-lg-6,.cell-lg-7,.cell-lg-8,.cell-lg-9,.cell-lg-10,.cell-lg-11,.cell-lg-12{width:100%;width:calc(100% - 1rem)}@media screen and (min-width:30em){.cell-sm-1{width:8.333333%;width:calc(100% / 12 - 1rem)}.cell-sm-2{width:16.666667%;width:calc(100% / 6 - 1rem)}.cell-sm-3{width:25%;width:calc(100% / 4 - 1rem)}.cell-sm-4{width:33.333333%;width:calc(100% / 3 - 1rem)}.cell-sm-5{width:41.666667%;width:calc(100% / (12 / 5) - 1rem)}.cell-sm-6{width:50%;width:calc(100% / 2 - 1rem)}.cell-sm-7{width:58.333333%;width:calc(100% / (12 / 7) - 1rem)}.cell-sm-8{width:66.666667%;width:calc(100% / (3 / 2) - 1rem)}.cell-sm-9{width:75%;width:calc(100% / (4 / 3) - 1rem)}.cell-sm-10{width:83.333333%;width:calc(100% / (6 / 5) - 1rem)}.cell-sm-11{width:91.666667%;width:calc(100% / (12 / 11) - 1rem)}.cell-sm-12{width:100%;width:calc(100% - 1rem)}}@media screen and (min-width:48em){.cell-md-1{width:8.333333%;width:calc(100% / 12 - 1rem)}.cell-md-2{width:16.666667%;width:calc(100% / 6 - 1rem)}.cell-md-3{width:25%;width:calc(100% / 4 - 1rem)}.cell-md-4{width:33.333333%;width:calc(100% / 3 - 1rem)}.cell-md-5{width:41.666667%;width:calc(100% / (12 / 5) - 1rem)}.cell-md-6{width:50%;width:calc(100% / 2 - 1rem)}.cell-md-7{width:58.333333%;width:calc(100% / (12 / 7) - 1rem)}.cell-md-8{width:66.666667%;width:calc(100% / (3 / 2) - 1rem)}.cell-md-9{width:75%;width:calc(100% / (4 / 3) - 1rem)}.cell-md-10{width:83.333333%;width:calc(100% / (6 / 5) - 1rem)}.cell-md-11{width:91.666667%;width:calc(100% / (12 / 11) - 1rem)}.cell-md-12{width:100%;width:calc(100% - 1rem)}}@media screen and (min-width:62em){.cell-lg-1{width:8.333333%;width:calc(100% / 12 - 1rem)}.cell-lg-2{width:16.666667%;width:calc(100% / 6 - 1rem)}.cell-lg-3{width:25%;width:calc(100% / 4 - 1rem)}.cell-lg-4{width:33.333333%;width:calc(100% / 3 - 1rem)}.cell-lg-5{width:41.666667%;width:calc(100% / (12 / 5) - 1rem)}.cell-lg-6{width:50%;width:calc(100% / 2 - 1rem)}.cell-lg-7{width:58.333333%;width:calc(100% / (12 / 7) - 1rem)}.cell-lg-8{width:66.666667%;width:calc(100% / (3 / 2) - 1rem)}.cell-lg-9{width:75%;width:calc(100% / (4 / 3) - 1rem)}.cell-lg-10{width:83.333333%;width:calc(100% / (6 / 5) - 1rem) }.cell-lg-11{width:91.666667%;width:calc(100% / (12 / 11) - 1rem)}.cell-lg-12{width:100%;width:calc(100% - 1rem)}}
-.block{margin:8px auto}
-.cell{background:hsl(240,4%,91%)}
+a{color:inherit;cursor:pointer;color:#12a8ed;text-decoration:none;font-weight:700;box-shadow:0 2px #12a8ed}
+textarea{resize:vertical}
+input,textarea{-webkit-border-radius:0}
 h1,.tabcontainer{max-width:768px;margin:0 auto}
 h1{font-size:64px;color:hsl(240,4%,71%)}
 h2{font-size:32px;color:hsl(349,86%,50%)}
@@ -41,37 +41,27 @@ h2{font-size:32px;color:hsl(349,86%,50%)}
 <button class="tab">IE?</button>
 <button class="tab">More?</button>
 <div class="tabpane active">
-  <div class="block">
-    <h2>What?</h2>
-    <p>stabs.js is about 50 lines of JavaScript for creating tabbed sections of your webpage.</p>
-  </div>
+  <h2>What?</h2>
+  <p>stabs.js is about 50 lines of JavaScript for creating tabbed sections of your webpage.</p>
 </div>
 <div class="tabpane">
-  <div class="block">
-    <h2>Why?</h2>
-    <p>Bootstrap requires jQuery. Other alternatives tend to require jQuery. Vanilla JS alternatives navigate to hash fragments in the URL bar.</p>
-    <p>I didn't want those things.</p>
-  </div>
+  <h2>Why?</h2>
+  <p>Bootstrap requires jQuery. Other alternatives tend to require jQuery. Vanilla JS alternatives navigate to hash fragments in the URL bar.</p>
+  <p>I didn't want those things.</p>
 </div>
 <div class="tabpane">
-  <div class="block">
-    <h2>How?</h2>
-    <p>stabs.js uses only vanilla JavaScript primarily relying on <code>while</code> loops and <code>classList</code>.</p>
-  </div>
+  <h2>How?</h2>
+  <p>stabs.js uses only vanilla JavaScript primarily relying on <code>while</code> loops and <code>classList</code>.</p>
 </div>
 <div class="tabpane">
-  <div class="block">
-    <h2>IE?</h2>
-    <p>IE9, or IE8 if you polyfill <code>classList</code>.</p>
-    <p>I experimented with <code>className</code> but the code was horribly ugly and inefficient.</p>
-  </div>
+  <h2>IE?</h2>
+  <p>IE9, or IE8 if you polyfill <code>classList</code>.</p>
+  <p>I experimented with <code>className</code> but the code was horribly ugly and inefficient.</p>
 </div>
 <div class="tabpane">
-  <div class="block">
-    <h2>More?</h2>
-    <p>Developer: <a href="https://amdouglas.com">A. M. Douglas</a></p>
-    <p>GitHub: <a href="https://github.com/wnda/stabs">wnda</a></p>
-  </div>
+  <h2>More?</h2>
+  <p>Developer: <a href="https://amdouglas.com">A. M. Douglas</a></p>
+  <p>GitHub: <a href="https://github.com/wnda/stabs">wnda</a></p>
 </div>
 
 </div>
