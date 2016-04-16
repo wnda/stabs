@@ -47,13 +47,13 @@ p{margin-bottom:.6rem}
   <button class="tab">Using stabs</button>
   <button class="tab">FAQs</button>
   <div class="tabpane active">
-    <h2>What?</h2>
+    <h2>What is stabs.js?</h2>
     <p>stabs.js is about 436 bytes of JavaScript for creating tabbed sections of your webpage.</p>
     <p>It's not something I'm proud of. It's not friendly, it doesn't have some clean API and it's not a module.</p>
     <p>You stick it at the bottom of the <code>&lt;body&gt;</code> and name your tabbed elements according to the lib's requirements.</p>
   </div>
   <div class="tabpane">
-    <h2>Why?</h2>
+    <h2>Why make this lib?</h2>
     <p>Bootstrap and other libraries/frameworks tend to require jQuery. Not surprising. My 50 lines of vanilla would probably be about 8 lines of jQuery.</p>
     <p>However, it is 2016 and ES5/ES6 are gaining traction, and the ES3 that is actually supported in the real world is now largely standardised even in IE.</p>
     <p>There are of course some vanilla JS alternatives, but they all navigate to hash fragments in the URL bar, which is a feature I explicitly didn't want.</p>
@@ -61,7 +61,7 @@ p{margin-bottom:.6rem}
     <p>Thus, stabs.js was born.</p>
   </div>
   <div class="tabpane">
-    <h2>How?</h2>
+    <h2>What's the approach?</h2>
     <p>stabs.js uses only vanilla JavaScript primarily relying on <code>for</code> loops and <code>classList</code>.</p>
     <p>This small lib loops through everything in the DOM with a class of &ldquo;tabcontainer&rdquo; and then adds event listeners to everything that is a &ldquo;tab&rdquo; in that tabcontainer.</p>
     <p>These event listeners wait for a tab to be clicked and then, if the tab is not active, it and its corresponding tabpane are set to active and all other tabs/tabpanes have their active status removed.</p>
@@ -69,14 +69,14 @@ p{margin-bottom:.6rem}
     <p>This is ultimately the simplest way to work with tabs.</p>
   </div>
   <div class="tabpane">
-    <h2>Using it?</h2>
+    <h2>How does one use it?</h2>
     <p>Create an element with a class of &ldquo;tabcontainer&rdquo;.</p>
     <p>Within that, create elements with a class of &ldquo;tab&rdquo;.</p>
     <p>For each &ldquo;tab&rdquo;, make sure you create a corresponding element with a class of &ldquo;tabpane&rdquo;&mdash;all within the &ldquo;tabcontainer&rdquo;.</p>
     <p>Include the library at the bottom of your <code>&lt;body&gt;</code> and it'll do its job.</p>
   </div>
   <div class="tabpane">
-    <h2>More info?</h2>
+    <h2>More info</h2>
     <p>IE9, or IE8 if you polyfill <code>classList</code>.</p>
     <p>I experimented with <code>className</code> but the code was horribly ugly and inefficient.</p>
     <p>Developer: <a href="https://amdouglas.com">A. M. Douglas</a></p>
