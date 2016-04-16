@@ -21,7 +21,8 @@ a{color:inherit;cursor:pointer;text-decoration:none}textarea{resize:vertical}inp
 .block{margin:8px auto}
 .cell{background:hsl(240,4%,91%)}
 .tabcontainer{display:block;max-width:992px;font-size:0;margin:0 auto}
-.tab{display:inline-block;color:hsl(240,4%,71%);padding:16px;margin-right:8px;font-size:16px;font-weight:700;border:4px solid hsl(240,4%,71%);box-shadow:4px 4px hsl(240,4%,71%)}
+.tab,.tabpane{color:hsl(240,4%,71%);padding:16px;font-size:16px;border:4px solid hsl(240,4%,71%);box-shadow:4px 4px hsl(240,4%,71%)}
+.tab{display:inline-block;margin-right:8px;font-weight:700}
 .tab:last-of-type{margin-right:0}
 .tab.active{color:hsl(349,86%,50%);border-color:hsl(349,86%,50%);box-shadow:4px 4px hsl(349,86%,50%);}
 .tabpane{display:none;width:100%;font-size:16px;text-align:left;}
@@ -29,6 +30,7 @@ a{color:inherit;cursor:pointer;text-decoration:none}textarea{resize:vertical}inp
 </style>
 </head>
 <body>
+<h1>stabs.js</h1>
 <div class="tabcontainer">
 <button class="tab active">Tab 1</button>
 <button class="tab">Tab 2</button>
