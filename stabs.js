@@ -1,31 +1,39 @@
 (function(){
   "use strict";
-  var tabcontainers = document.querySelectorAll(".tabcontainer"),
-      z = tabcontainers.length;
-  function stabs(){
-    var t = tabcontainers[z],
-        tabs = t.querySelectorAll(".tab"),
-        a = tabs.length,
-        tabpanes = t.querySelectorAll(".tabpane"),
-        b = tabpanes.length;
-    function tabclick(e){
-      var c = e.target || e.srcElement || window.event.target || window.event.srcElement,
-          m = Array.prototype.indexOf.call(tabs, c),
-          actives = t.querySelectorAll(".active"),
-          d = actives.length;
-      while(d--){
-        actives[d].classList.remove("active");
+  function stabs(config){
+    var tabcontainer_selector = "." + config.tabcontainer || ".tabcontainer",
+        tab_selector = "." + config.tab || ".tab",
+        tabpane_selector = "." + config.tabpane || ".tabpane",
+        active_selector = "." + config.active || ".active",
+        active_class = config.active || "active",
+        tabcontainers = document.querySelectorAll(tabcontainer_selector),
+        z = tabcontainers.length;
+    function stabsEvents(){
+      var t = tabcontainers[z],
+          tabs = t.querySelectorAll(tab_selector),
+          a = tabs.length,
+          tabpanes = t.querySelectorAll(tabpane_selector),
+          b = tabpanes.length;
+      function stabsClick(e){
+        var c = e.target || e.srcElement || window.event.target || window.event.srcElement,
+            m = Array.prototype.indexOf.call(tabs, c),
+            actives = t.querySelectorAll(active_selector),
+            d = actives.length;
+        while(d--){
+          actives[d].classList.remove(active_class);
+        }
+        c.classList.add(active_class);
+        tabpanes[m].classList.add(active_class);
       }
-      c.classList.add("active");
-      tabpanes[m].classList.add("active");
+      while(a--){
+        if(tabs[a].addEventListener){tabs[a].addEventListener("click", stabsClick, false);}
+        else if(tabs[a].attachEvent){tabs[a].attachEvent("onclick", stabsClick);}
+        else{tabs[a].onclick=stabsClick;}
+      }
     }
-    while(a--){
-      if(tabs[a].addEventListener){tabs[a].addEventListener("click", tabclick, false);}
-      else if(tabs[a].attachEvent){tabs[a].attachEvent("onclick", tabclick);}
-      else{tabs[a].onclick=tabclick;}
+    while(z--){
+      stabsEvents();
     }
   }
-  while(z--){
-    stabs();
-  }
+  window.stabs=stabs;
 })();
