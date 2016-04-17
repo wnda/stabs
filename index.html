@@ -7,7 +7,7 @@
 <meta name="referrer" content="origin">
 <link rel="canonical" href="https://stabs.amdouglas.com/">
 <link rel="icon" href="https://cdn.rawgit.com/wnda/pivot/master/favicon.ico">
-<script src="https://rawgit.com/wnda/stabs/gh-pages/stabs.min.js"></script>
+<script src="/stabs.min.js"></script>
 <style>
 @charset "UTF-8";
 :root,html,body{box-sizing:border-box;font:400 16px/1.3 'SofiaPro',Roboto,-apple-system,caption;overflow-x:hidden;text-decoration:none;width:100%;min-height:100%}
@@ -56,10 +56,9 @@ p{margin-bottom:.6rem}
   <button class="tab">FAQs</button>
   <div class="tabpane active">
     <h2>What is stabs.js?</h2>
-    <p>stabs.js is about 997 bytes of JavaScript (594 bytes minified) for creating tabbed sections of your webpage.</p>
-    <p>It's not something I'm proud of. It's not friendly, it doesn't have some clean API and it's not a module.</p>
-    <p>Yet.</p>
-    <p>You stick it at the bottom of the <code>&lt;body&gt;</code> and name your tabbed elements according to the lib's requirements.</p>
+    <p>stabs.js is about 1.5 kilobytes of JavaScript (737 bytes minified) for creating tabbed sections of your webpage.</p>
+    <p>It's not something I'm proud of. It's not the friendliest or the most modern approach.</p>
+    <p>However, it is easy to use, you can customise how it works and it's pretty robust.</p>
   </div>
   <div class="tabpane">
     <h2>Why make this lib?</h2>
@@ -79,10 +78,27 @@ p{margin-bottom:.6rem}
   </div>
   <div class="tabpane">
     <h2>How does one use it?</h2>
-    <p>Create an element with a class of &ldquo;tabcontainer&rdquo;.</p>
-    <p>Within that, create elements with a class of &ldquo;tab&rdquo;.</p>
-    <p>For each &ldquo;tab&rdquo;, make sure you create a corresponding element with a class of &ldquo;tabpane&rdquo;&mdash;all within the &ldquo;tabcontainer&rdquo;.</p>
-    <p>Include the library at the bottom of your <code>&lt;body&gt;</code> and it'll do its job.</p>
+    <p>Include <code>stabs.min.js</code> in your page and below call the function, optionally passing in a configuration object like so:</p>
+    <pre>
+      stab({
+        tabcontainer: "tabcontainer",
+        tab: "tab",
+        tabpane: "tabpane",
+        active: "active"
+      });
+    </pre>
+    <p>Then just make sure you have elements corresponding to your selectors.</p>
+    <p>stabs.js works assuming the following hierarchy:</p>
+    <pre>
+    tabcontainer
+      tab
+      tab
+      tab
+      tabpane
+      tabpane
+      tabpane
+    </pre>
+    <p>That is, you need a containing element and the tabs and tabpanes must be children of the container, though they need not necessarily be immediate children.</p>
   </div>
   <div class="tabpane">
     <h2>FAQs</h2>
