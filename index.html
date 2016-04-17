@@ -40,7 +40,7 @@ h2{font-size:32px;color:#EE113A;letter-spacing:-2px;border-bottom:#EE113A 1px do
 .tabpane{display:none;color:#EE113A;font-size:16px;text-align:left;border:4px solid #EE113A;box-shadow:4px 4px #EE113A}
 .tabpane.active{display:block}
 details,summary,pre{display:block}
-details{margin-bottom:16px}
+details{margin-bottom:16px;cursor:pointer}
 pre{max-width:100%;overflow-x:auto}
 pre,code{font-family:Cousine,Consolas,Menlo,monospace!important;font-weight:700;font-size:14px;color:#20B2AA}
 p{margin-bottom:.6rem}
@@ -87,14 +87,12 @@ p{margin-bottom:.6rem}
   <div class="tabpane">
     <h2>How does one use it?</h2>
     <p>Include <code>stabs.min.js</code> in your page and below call the function, optionally passing in a configuration object like so:</p>
-    <pre>
-      stabs({
-        tabcontainer: "tabcontainer",
-        tab: "tab",
-        tabpane: "tabpane",
-        active: "active"
-      });
-    </pre>
+    <pre>stabs({
+      tabcontainer: "tabcontainer",
+      tab: "tab",
+      tabpane: "tabpane",
+      active: "active"
+    });</pre>
     <p>Then just make sure you have elements corresponding to your selectors.</p>
     <p>stabs.js works assuming the following hierarchy:</p>
     <pre>
