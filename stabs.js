@@ -1,11 +1,11 @@
 (function(){
   "use strict";
   function stabs(config){
-    var tabcontainer_selector = config&&config.tabcontainer ? "." + config.tabcontainer : ".tabcontainer",
-        tab_selector = config&&config.tab ? "." + config.tab : ".tab",
-        tabpane_selector = config&&config.tabpane ? "." + config.tabpane : ".tabpane",
-        active_selector = config&&config.active ? "." + config.active : ".active",
-        active_class = config&&config.active ? config.active : "active",
+    var tabcontainer_selector = config && config.tabcontainer ? "." + config.tabcontainer : ".tabcontainer",
+        tab_selector = config && config.tab ? "." + config.tab : ".tab",
+        tabpane_selector = config && config.tabpane ? "." + config.tabpane : ".tabpane",
+        active_selector = config && config.active ? "." + config.active : ".active",
+        active_class = config && config.active ? config.active : "active",
         tabcontainers = document.querySelectorAll(tabcontainer_selector),
         z = tabcontainers.length;
     function stabsEvents(){
