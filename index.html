@@ -32,19 +32,19 @@
 <div class="tabpane active">
 <h2>What is stabs.js?</h2>
 <p>stabs.js is about 1.5 kilobytes of JavaScript (737 bytes minified) for creating tabbed sections of your webpage.</p>
-<p>It's not something I'm proud of. It's not the friendliest or the most modern approach.</p>
-<p>However, it is easy to use, you can customise how it works and it's pretty robust.</p>
+<p>It&lsquo;s not something I&lsquo;m proud of. It&lsquo;s not the friendliest or the most modern approach.</p>
+<p>However, it&lsquo;s easy to use, you can customise how it works, and it's pretty robust.</p>
 </div>
 <div class="tabpane">
 <h2>Why make this lib?</h2>
 <p>Bootstrap and other libraries/frameworks tend to require jQuery. Not surprising. My 50 lines of vanilla would probably be about 8 lines of jQuery.</p>
 <p>However, it is 2016 and ES5/ES6 are gaining traction, and the ES3 that is actually supported in the real world is now largely standardised even in IE.</p>
-<p>There are of course some vanilla JS alternatives, but they all navigate to hash fragments in the URL bar, which is a feature I explicitly didn't want.</p>
+<p>There are of course some vanilla JS alternatives, but they all navigate to hash fragments in the URL bar, which is a feature I explicitly didn&lsquo;t want.</p>
 <p>I wanted something lean, robust and amenable to nesting because, though I do not tend to nest things (I'm not a fan of complexity) I do believe it is important to be prepared for the day when nesting will be required.</p>
 <p>Thus, stabs.js was born.</p>
 </div>
 <div class="tabpane">
-<h2>What's the approach?</h2>
+<h2>What&lsquo;s the approach?</h2>
 <p>stabs.js uses only vanilla JavaScript primarily relying on <code>for</code> loops and <code>classList</code>.</p>
 <p>This small lib loops through everything in the DOM and adds event listeners to everything that is a &ldquo;tab&rdquo; in a tabcontainer.</p>
 <p>These event listeners wait for a tab to be clicked and then, if the tab is not active, it and its corresponding tabpane are given an active CSS class and all other tabs/tabpanes have their active status removed.</p>
@@ -67,7 +67,7 @@ stabs({
 </div>
 <div class="tabpane">
 <h2>FAQs</h2>
-<details><summary>What's the IE compatibility like?</summary>IE10&mdash;IE7 if you polyfill <code>classList</code>.</details>
+<details><summary>What&lsquo;s the ol&lsquo; IE compatibility like?</summary>IE10&mdash;or IE7 if you polyfill <code>classList</code>.</details>
 <details><summary>Why <code>classList</code>?</summary>I did originally try to keep to just <code>className</code> amends, but the code was rather inefficient. <code>classList</code> is a no-brainer.</details>
 <details><summary>Who wrote this lib?</summary><a href="https://amdouglas.com">A. M. Douglas</a> a freelance web developer based in Leeds, UK.</details>
 <details><summary>Is this on GitHub?</summary><a href="https://github.com/wnda/stabs">https://github.com/wnda/stabs</a></details>
