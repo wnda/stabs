@@ -7,6 +7,13 @@
 <meta name="referrer" content="origin">
 <link rel="canonical" href="https://stabs.amdouglas.com/">
 <link rel="icon" href="https://cdn.rawgit.com/wnda/pivot/master/favicon.ico">
+<!--[if lt IE 9]>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js""></script>
+<script type="text/javascript" src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
+<!--[if IE]>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/classlist/2014.01.31/classList.min.js"></script>
+<![endif]-->
 <script src="/stabs.min.js"></script>
 <style>
 @charset "UTF-8";
@@ -32,9 +39,10 @@ h2{font-size:32px;color:#EE113A;letter-spacing:-2px;border-bottom:#EE113A 1px do
 .tab.active{color:#EE113A;border-color:#EE113A;box-shadow:4px 4px #EE113A}
 .tabpane{display:none;color:#EE113A;font-size:16px;text-align:left;border:4px solid #EE113A;box-shadow:4px 4px #EE113A}
 .tabpane.active{display:block}
-details,summary{display:block}
+details,summary,pre{display:block}
 details{margin-bottom:16px}
-code{font-family:Cousine,Consolas,Menlo,monospace!important;font-weight:700;font-size:14px;color:#20B2AA}
+pre{max-width:100%;overflow-x:auto}
+pre,code{font-family:Cousine,Consolas,Menlo,monospace!important;font-weight:700;font-size:14px;color:#20B2AA}
 p{margin-bottom:.6rem}
 @keyframes flicker{0%{opacity:0}75%{opacity:.1}85%{opacity:.5}95%{opacity:.1}99%{opacity:.5}100%{opacity:1}}
 @supports (animation-name: flicker){
@@ -80,7 +88,7 @@ p{margin-bottom:.6rem}
     <h2>How does one use it?</h2>
     <p>Include <code>stabs.min.js</code> in your page and below call the function, optionally passing in a configuration object like so:</p>
     <pre>
-      stab({
+      stabs({
         tabcontainer: "tabcontainer",
         tab: "tab",
         tabpane: "tabpane",
