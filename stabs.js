@@ -9,7 +9,7 @@
         tabpanes = t.querySelectorAll(".tabpane"),
         b = tabpanes.length;
     function tabclick(e){
-      var c = e.target || e.srcElement || window.event.target || window.event.srcElement;
+      var c = e.target || e.srcElement || window.event.target || window.event.srcElement,
           m = Array.prototype.indexOf.call(tabs, c),
           actives = t.querySelectorAll(".active"),
           d = actives.length;
