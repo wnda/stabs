@@ -20,13 +20,9 @@
       tabpanes[m].classList.add("active");
     }
     while(a--){
-      if(tabs[a].addEventListener){
-        tabs[a].addEventListener("click", tabclick, false);
-      }else if(tabs[a].attachEvent){
-        tabs[a].attachEvent("onclick", tabclick);
-      }else{
-          tabs[a].onclick=tabclick;
-      }
+      if(tabs[a].addEventListener){tabs[a].addEventListener("click", tabclick, false);}
+      else if(tabs[a].attachEvent){tabs[a].attachEvent("onclick", tabclick);}
+      else{tabs[a].onclick=tabclick;}
     }
   }
   while(z--){
