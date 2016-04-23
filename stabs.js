@@ -9,6 +9,7 @@
         tabpane_selector      = config && config.tabpane      ? "." + config.tabpane      : ".tabpane",
         active_selector       = config && config.active       ? "." + config.active       : ".active",
         active_class          = config && config.active       ? config.active             : "active",
+        add_hash              = config && config.addhash      ? config.addhash            : false,
         tabcontainers         = document.querySelectorAll(tabcontainer_selector),
         z                     = tabcontainers.length;
         
@@ -27,15 +28,21 @@
             actives = t.querySelectorAll(active_selector),
             d       = actives.length;
             
-        while(d--){
+        while (d--){
           actives[d].classList.remove(active_class);
         }
         
         c.classList.add(active_class);
+        
         tabpanes[m].classList.add(active_class);
+        
+        if (add_hash && c.id && location.hash !== c.id){
+          location.hash = c.id;
+        }
+        
       }
       
-      while(a--){
+      while (a--){
         
         if (tabs[a].addEventListener){
           tabs[a].addEventListener("click", stabsClick, false);
@@ -51,7 +58,7 @@
       
     }
     
-    while(z--){
+    while (z--){
       stabsEvents();
     }
     
