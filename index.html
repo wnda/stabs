@@ -40,7 +40,7 @@
 <h2>Why make this lib?</h2>
 <p>Bootstrap and other libraries/frameworks tend to require jQuery. Not surprising. My 50 lines of vanilla would probably be about 8 lines of jQuery.</p>
 <p>However, it is 2016 and ES5/ES6 are gaining traction, and the ES3 that is actually supported in the real world is now largely standardised even in IE.</p>
-<p>There are of course some vanilla JS alternatives, but they all navigate to hash fragments in the URL bar, which is a feature I explicitly didn&lsquo;t want.</p>
+<p>There are of course some vanilla JS alternatives, but they all force hash fragments and that's a feature I really didn&lsquo;t want.</p>
 <p>I wanted something lean, robust and amenable to nesting because, though I do not tend to nest things (I'm not a fan of complexity) I do believe it is important to be prepared for the day when nesting will be required.</p>
 <p>Thus, stabs.js was born.</p>
 </div>
@@ -60,12 +60,14 @@ stabs({
   tabcontainer: "tabcontainer",
   tab: "tab",
   tabpane: "tabpane",
-  active: "active"
+  active: "active",
+  addhash: false
 });
 </pre>
 <p>Then just make sure you have elements corresponding to your selectors. <strong>Only CSS classes are supported as selectors at the moment</strong>, and you should not include the periods/full-stops preceding the class names in your config object, as these are added automatically.</p>
 <p>Updates will include accommodation for any and all selectors supported by <code>querySelectorAll</code>. Using <code>querySelectorAll</code> means that the <code>tabs</code>/<code>tabpanes</code> can be structured however you please, as long as they are all within the <code>tabcontainer</code>.</p>
 <p>You need a containing element and the tabs and tabpanes must be children of the container, though they need not necessarily be immediate children.</p>
+<p>Passing in <code>true</code> for <code>addhash</code> enables hash fragments for your tabs if you want it.</p>
 </div>
 <div class="tabpane">
 <h2>FAQs</h2>
