@@ -40,6 +40,8 @@
           location.hash = c.id;
         }
         
+        return false;
+        
       }
       
       while (a--){
