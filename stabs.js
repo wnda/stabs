@@ -27,7 +27,7 @@
             m       = Array.prototype.indexOf.call(tabs, c),
             actives = t.querySelectorAll(active_selector),
             d       = actives.length;
-            
+        
         while (d--){
           actives[d].classList.remove(active_class);
         }
@@ -39,6 +39,8 @@
         if (add_hash && c.id && location.hash !== c.id){
           location.hash = c.id;
         }
+        
+        return false;
         
       }
       
