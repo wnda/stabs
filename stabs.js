@@ -24,10 +24,10 @@
       function stabsClick(e){
         
         var c       = e.target || e.srcElement || window.event.target || window.event.srcElement,
-            m       = Array.prototype.indexOf.call(tabs, c),
+            m       = [].indexOf.call(tabs, c),
             actives = t.querySelectorAll(active_selector),
             d       = actives.length;
-        
+            
         while (d--){
           actives[d].classList.remove(active_class);
         }
