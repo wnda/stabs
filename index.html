@@ -78,6 +78,7 @@ stabs({
 </div>
 <div class="tabpane">
 <h2>FAQs</h2>
+<details><summary>Can I nest tabs?</summary>No. This library represents the outcome of a choice: flexible markup or amenability to nesting. Nesting can be done simply if you iterate only over sibling elements to tabs, but then your tabs and tabpanes must be at the same level of the DOM. That sucks. You want to be able to use whatever markup you need to use. And if you're nesting tabs you're probably doing something very bad in terms of UI design.</details>
 <details><summary>What&rsquo;s the ol&rsquo; IE compatibility like?</summary>IE10&mdash;or IE8 if you polyfill <code>classList</code>.</details>
 <details><summary>Why <code>classList</code>?</summary>I did originally try to keep to just <code>className</code> amends, but the code was rather inefficient. <code>classList</code> is a no-brainer.</details>
 <details><summary>Who wrote this lib?</summary><a href="https://amdouglas.com">A. M. Douglas, a freelance web developer based in Leeds, UK.</a></details>
