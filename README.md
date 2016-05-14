@@ -1,5 +1,5 @@
 <h2>What is stabs.js?</h2>
-<p>stabs.js is about 1.5 kilobytes of JavaScript (737 bytes minified) for creating tabbed sections of your webpage.</p>
+<p>stabs.js is about 2.5 kilobytes of JavaScript (1 kilobyte minified) for creating tabbed sections of your webpage.</p>
 <p>It's not something I'm proud of. It's not the friendliest or the most modern approach.</p>
 <p>However, it is easy to use, you can customise how it works and it's pretty robust.</p>
 <h2>Why make this lib?</h2>
