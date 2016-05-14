@@ -6,7 +6,7 @@
 <p>Bootstrap and other libraries/frameworks tend to require jQuery. Not surprising. My 50 lines of vanilla would probably be about 8 lines of jQuery.</p>
 <p>However, it is 2016 and ES5/ES6 are gaining traction, and the ES3 that is actually supported in the real world is now largely standardised even in IE.</p>
 <p>There are of course some vanilla JS alternatives, but they all navigate to hash fragments in the URL bar, which is a feature I explicitly didn't want.</p>
-<p>I wanted something lean, robust and amenable to nesting because, though I do not tend to nest things (I'm not a fan of complexity) I do believe it is important to be prepared for the day when nesting will be required.</p>
+<p>I wanted something lean and robust.</p>
 <p>Thus, stabs.js was born.</p>
 <h2>What's the approach?</h2>
 <p>stabs.js uses only vanilla JavaScript primarily relying on <code>for</code> loops and <code>classList</code>.</p>
