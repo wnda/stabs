@@ -12,7 +12,18 @@
         add_hash              = config && config.addhash      ? config.addhash            : false,
         tabcontainers         = document.querySelectorAll(tabcontainer_selector),
         z                     = tabcontainers.length;
-        
+    
+    function amendCss (w,x,y){
+      var p = w.split(" "),
+          q = w.length,
+          r = [];
+      while(q--){
+        p[q]&&p[q]!=active_class&&r.push(p[q]);
+      }
+      y&&r.push(x);
+      return r.join(" ");
+    }
+    
     function stabsEvents(){
       
       var t        = tabcontainers[z],
@@ -28,13 +39,20 @@
             actives = t.querySelectorAll(active_selector),
             d       = actives.length;
             
-        while (d--){
-          actives[d].classList.remove(active_class);
+        if ("classList" in document.createElement("_")){
+          while(d--){
+            actives[d].classList.remove(active_class);
+            c.classList.add(active_class);
+            tabpanes[m].classList.add(active_class);
+          }
+        } 
+        else {
+          while(d--){
+            actives[d].className = amendCss(actives[d].className, active_class, 0);
+          }
+          c.className            = amendCss(c.className, active_class, 1);
+          tabpanes[m].className  = amendCss(tabpanes[m].className, active_class, 1);
         }
-        
-        c.classList.add(active_class);
-        
-        tabpanes[m].classList.add(active_class);
         
         if (add_hash && c.id && location.hash !== c.id){
           location.hash = c.id;
