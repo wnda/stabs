@@ -47,9 +47,9 @@
         if ("classList" in document.createElement("_")){
           while(d--){
             actives[d].classList.remove(active_class);
-            c.classList.add(active_class);
-            tabpanes[m].classList.add(active_class);
           }
+          c.classList.add(active_class);
+          tabpanes[m].classList.add(active_class);
         } 
         else {
           while(d--){
