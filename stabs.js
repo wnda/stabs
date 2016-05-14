@@ -14,14 +14,19 @@
         z                     = tabcontainers.length;
     
     function amendCss (w,x,y){
+      
       var p = w.split(" "),
           q = w.length,
           r = [];
-      while(q--){
-        p[q]&&p[q]!=active_class&&r.push(p[q]);
+          
+      while (q--){
+        p[q] && p[q] != active_class && r.push(p[q]);
       }
-      y&&r.push(x);
+      
+      y && r.push(x);
+      
       return r.join(" ");
+    
     }
     
     function stabsEvents(){
