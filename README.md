@@ -1,5 +1,5 @@
 <h2>What is stabs.js?</h2>
-<p>stabs.js is about 2.5 kilobytes of JavaScript (1 kilobyte minified) for creating tabbed sections of your webpage.</p>
+<p>stabs.js is about 1.9 kilobytes of JavaScript for creating tabbed sections of your webpage.</p>
 <p>It's not something I'm proud of. It's not the friendliest or the most modern approach.</p>
 <p>However, it is easy to use, you can customise how it works and it's pretty robust.</p>
 <h2>Why make this lib?</h2>
@@ -25,3 +25,4 @@ stabs({
 });</pre>
 <p>Then just make sure you have elements corresponding to your selectors.</p>
 <p>You need a containing element and the tabs and tabpanes must be children of the container, though they need not necessarily be immediate children.</p>
+<p>stabs supports nested tabs</p>
