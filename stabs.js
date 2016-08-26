@@ -1,16 +1,26 @@
 (function(){
   'use strict';
   
-  function getChildren( n, skipMe ){
-    var r = [];
-    for ( ; n; n = n.nextSibling ){
-      if ( n.nodeType == 1 && n != skipMe) r.push( n );
-    }
-    return r;
+  // https://gist.github.com/revolunet/1908355
+  if (!Array.prototype.indexOf){
+    Array.prototype.indexOf = function(el){
+      var len = this.length >>> 0;
+      var from = Number(arguments[1]) || 0;
+      from = (from < 0) ? Math.ceil(from) : Math.floor(from);
+      if (from < 0) from += len;
+      for (; from < len; from++){
+        if (from in this && this[from] === el) return from;
+      }
+      return -1;
+    };
   }
 
-  function getSiblings( n ) {
-    return getChildren( n.parentNode.firstChild, n );
+  function getSiblings( m ) {
+    var r = [], n = m.parentNode.firstChild;
+    for ( ; n; n = n.nextSibling ){
+      if ( n.nodeType == 1 && n != m) r.push( n );
+    }
+    return r;
   }
   
   function stabs(t){
