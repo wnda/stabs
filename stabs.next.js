@@ -24,6 +24,13 @@
     PRIVATE METHODS / HELPER FUNCTIONS
   **/
 
+  // used for toggleClass
+  var isInArray = function( arr, item ){
+    var len = arr.length;
+    while( len-- ) if ( item === arr[len] ) return true;
+    return false;
+  };
+
   // quick and blunt shim for the classList behaviour we need
   // className + regex could be used, but regexes are ugly and slower
   var toggleClass = function( current_classname, class_to_toggle ){
@@ -37,30 +44,25 @@
     return new_classname.join( ' ' );
   };
 
-  // no longer needed
-  var isInArray = function( arr, item ){
-    var len = arr.length;
-    while( len-- ) if ( item === arr[len] ) return true;
-    return false;
-  };
-
   // This function is fired upon stabs initialisation
   // It takes tabcontainers and the length of tabcontainers as parameters
   // so as to build a pool of tabs and tabpanes within, and then attaches
   // the necessary event listeners to the tabs while storing the tabpanes
   // for later.
   var addEvents = function ( tabcontainers, t ){
+    
     var this_tabcontainer = tabcontainers[ t ],
         tabs = this_tabcontainer.querySelectorAll( settings.tab_selector ),
         tabpanes = this_tabcontainer.querySelectorAll( settings.tabpane_selector ),
         a = tabs.length, b = 0;
+        
     for ( ; a > b; b++ )
     {
-      if ( tabs[b].addEventListener )
+      if ( 'addEventListener' in window )
       {
         tabs[b].addEventListener( "click", tabClicked( this_tabcontainer, tabs, tabpanes ), false );
       }
-      else if ( tabs[b].attachEvent )
+      else if ( 'attachEvent' in window )
       {
         tabs[b].attachEvent( "onclick", tabClicked( this_tabcontainer, tabs, tabpanes ) );
       }
@@ -78,7 +80,11 @@
   // respective arrays, so we aren't changing their CSS classes twice.
   // indexOf requires a polyfill.
   var tabClicked = function( this_tabcontainer, tabs, tabpanes ){
-    return function( e ){
+    
+    // closure to grab the parameters passed into the event handler
+    // while retaining context for $this
+    return function(){
+      
       var clicked_tab = this,
           clicked_tabpane = [].indexOf.call( tabs, clicked_tab ),
           actives = [
@@ -100,6 +106,7 @@
         clicked_tab.className = toggleClass( clicked_tab.className, settings.active_class );
         tabpanes[ clicked_tabpane ].className = toggleClass( tabpanes[ clicked_tabpane ].className, settings.active_class );
       }
+      
       if ( !!settings.add_hash && clicked_tab.id && location.hash !== clicked_tab.id )
       {
         location.hash = clicked_tab.id;
@@ -107,6 +114,12 @@
     };
   };
 
+  /**
+    PUBLIC METHODS
+  **/
+  
+  // .init();
+  // pass in optional configuration parameters
   window.stabs = {
 
     init: function( config ){
@@ -119,6 +132,7 @@
         active_class          : config && config.active       ? config.active             : "active",
         add_hash              : config && config.addhash      ? config.addhash            : false
       };
+      
       var tabcontainers = document.querySelectorAll( settings.tabcontainer_selector ),
           tc_len        = tabcontainers.length,
           t             = 0;
