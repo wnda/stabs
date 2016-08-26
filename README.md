@@ -15,14 +15,7 @@
 <p>This might seem like cheating, but the approach could easily be adapted to manipulate styles directly. However, appending and removing classes is ultimately more efficient, and also enables the exact way tabs are displayed/hidden to be very flexible to the CSS-savvy dev.</p>
 <p>This is ultimately the simplest way to work with tabs.</p>
 <h2>How does one use it?</h2>
-<p>Include <code>stabs.min.js</code> in your page and below call the function, optionally passing in a configuration object like so:</p>
-<pre>
-stabs({
-  tabcontainer: "tabcontainer",
-  tab: "tab",
-  tabpane: "tabpane",
-  active: "active"
-});</pre>
+<p>Include <code>stabs.min.js</code> in your page and below call the function</p>
 <p>Then just make sure you have elements corresponding to your selectors.</p>
 <p>You need a containing element and the tabs and tabpanes must be children of the container, though they need not necessarily be immediate children.</p>
 <p>stabs supports nested tabs</p>
