@@ -46,7 +46,7 @@
   };
   
   // tab click event handler
-  var tabclick = function(tabs, tabpanes){
+  var tabClick = function(tabs, tabpanes){
     return function(e){
       var c = (e.target || this);
       var d = getSiblings(c);
