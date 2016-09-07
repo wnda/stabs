@@ -52,13 +52,11 @@
       var d = getSiblings(c);
       var f = d.length;
       var idx = [].indexOf.call(tabs, c);
-      
       while(f--){
         var j = d[f].className.split(' '),
             y = j.indexOf('active');
         if(y !== -1) d[f].className = amendCSS(d[f].className,'active',false);
       }
-      
       if (c.className === 'tab' ) c.className = amendCSS(c.className,'active',true);
       if (tabpanes[idx].className === 'tabpane') tabpanes[idx].className = amendCSS(tabpanes[idx].className,'active',true);
       if ( c.id && location.hash !== c.id ) location.hash = c.id;
@@ -66,10 +64,12 @@
   };
   
   // event attacher
-  var stabs = function(tabcontainer){
-    var tabs     = tabcontainer.querySelectorAll('.tab');
-    var len      = tabs.length;
-    var tabpanes = tabcontainer.querySelectorAll('.tabpane');
+  var stabsEvents = function(tabcontainer, config){
+    var tab_selector = config && config.tab_selector || '.tab';
+    var tabpane_selector = config && config.tabpane_selector || '.tabpane';
+    var tabs = tabcontainer.querySelectorAll( tab_selector );
+    var len = tabs.length;
+    var tabpanes = tabcontainer.querySelectorAll( tabpane_selector );
       
     while(len--){
       if ( 'addEventListener' in window ) tabs[len].addEventListener( 'click', tabClick, false );
@@ -77,11 +77,16 @@
       else tabs[len].onclick = tabClick;
     }
   };
-    
-  var tabcontainer = document.querySelectorAll('.tabcontainer'),
-      len            = tabcontainer.length;
+  
+  window.stabs = function(config){
+    var tabcontainer_selector = config && config.tabcontainer_selector || '.tabcontainer';
+    var tabcontainers = document.querySelectorAll( tabcontainer_selector );
+    var len = tabcontainer.length;
       
-  while(len--){
-    stabs( tabcontainer[len] );
-  }
+    while(len--){
+      stabsEvents( tabcontainers[len], config );
+    }
+  };
+  
+  stabs(); // insert config object if you want
 })();
