@@ -57,8 +57,8 @@
             y = j.indexOf('active');
         if(y !== -1) d[f].className = amendCSS(d[f].className,'active',false);
       }
-      c.className = amendCSS(c.className,'active',true);
-      tabpanes[idx].className = amendCSS(tabpanes[idx].className,'active',true);
+      if (c.className === 'tab' ) c.className = amendCSS(c.className,'active',true);
+      if (tabpanes[idx].className === 'tabpane') tabpanes[idx].className = amendCSS(tabpanes[idx].className,'active',true);
       if ( c.id && location.hash !== c.id ) location.hash = c.id;
     };
   };
@@ -72,9 +72,9 @@
     var tabpanes = tabcontainer.querySelectorAll( tabpane_selector );
       
     while(len--){
-      if ( 'addEventListener' in window ) tabs[len].addEventListener( 'click', tabClick, false );
-      else if ( 'attachEvent' in window ) tabs[len].attachEvent( 'onclick', tabClick );
-      else tabs[len].onclick = tabClick;
+      if ( 'addEventListener' in window ) tabs[len].addEventListener( 'click', tabClick(tabs,tabpanes), false );
+      else if ( 'attachEvent' in window ) tabs[len].attachEvent( 'onclick', tabClick(tabs,tabpanes) );
+      else tabs[len].onclick = tabClick(tabs,tabpanes);
     }
   };
   
@@ -88,5 +88,5 @@
     }
   };
   
-  return stabs(); // insert config object if you want
 })();
+stabs(); 
