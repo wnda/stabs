@@ -15,6 +15,7 @@
     };
   }
 
+  // grifted from jQuery
   var getSiblings = function( m ) {
     var r = [], n = m.parentNode.firstChild;
     for ( ; n; n = n.nextSibling ){
@@ -23,14 +24,16 @@
     return r;
   };
   
+  // needed for amendCSS()
   var isInArray = function( arr, item ){
     var len = arr.length;
     while(len--){
-      if(item===arr[len]) return true;
+      if(item === arr[len]) return true;
     }
     return false;
   };
 
+  // avoid a classList polyfill
   var amendCSS = function( current_classname, class_to_toggle, add_class ){
     var arr_classes   = current_classname.split(' '),
         len           = current_classname.length,
@@ -42,38 +45,43 @@
     return (new_classname.join(' ')).trimRight();
   };
   
-  function stabs(t){
-      var tabs     = t.querySelectorAll('.tab');
-      var a        = tabs.length;
-      var tabpanes = t.querySelectorAll('.tabpane');
-      var b        = tabpanes.length;
-          
-      function tabclick(){
-        var c = this;
-        var d = getSiblings(c);
-        var f = d.length;
-        var idx = [].indexOf.call(tabs, c);
-        while(f--){
-          var j = d[f].className.split(' '),
-              v = j.indexOf('tabpane'),
-              w = j.indexOf('tab'),
-              y = j.indexOf('active');
-          if ( d[f] !== c && w !== -1 ) d[f].className = amendCSS(d[f].className,'active',false);
-          if ( d[f] !== c && v !== -1 && y !== -1 ) d[f].className = amendCSS(d[f].className,'active',false);
-        }
-        if (c.className === 'tab' ) c.className = amendCSS(c.className,'active',true);
-        if (tabpanes[idx].className === 'tabpane') tabpanes[idx].className = amendCSS(tabpanes[idx].className,'active',true);
-        if ( c.id && location.hash !== c.id ) location.hash = c.id;
+  // tab click event handler
+  var tabclick = function(tabs, tabpanes){
+    return function(e){
+      var c = (e.target || this);
+      var d = getSiblings(c);
+      var f = d.length;
+      var idx = [].indexOf.call(tabs, c);
+      
+      while(f--){
+        var j = d[f].className.split(' '),
+            y = j.indexOf('active');
+        if(y !== -1) d[f].className = amendCSS(d[f].className,'active',false);
       }
-      while(a--){
-        if ( 'addEventListener' in window ) tabs[a].addEventListener( 'click', tabclick, false );
-        else if ( 'attachEvent' in window ) tabs[a].attachEvent( 'onclick', tabclick );
-        else tabs[a].onclick = tabclick;
-      }
+      
+      if (c.className === 'tab' ) c.className = amendCSS(c.className,'active',true);
+      if (tabpanes[idx].className === 'tabpane') tabpanes[idx].className = amendCSS(tabpanes[idx].className,'active',true);
+      if ( c.id && location.hash !== c.id ) location.hash = c.id;
+    };
+  };
+  
+  // event attacher
+  var stabs = function(tabcontainer){
+    var tabs     = tabcontainer.querySelectorAll('.tab');
+    var len      = tabs.length;
+    var tabpanes = tabcontainer.querySelectorAll('.tabpane');
+      
+    while(len--){
+      if ( 'addEventListener' in window ) tabs[len].addEventListener( 'click', tabClick, false );
+      else if ( 'attachEvent' in window ) tabs[len].attachEvent( 'onclick', tabClick );
+      else tabs[len].onclick = tabClick;
     }
+  };
+    
   var tabcontainer = document.querySelectorAll('.tabcontainer'),
-      z            = tabcontainer.length;
-  while(z--){
-    stabs( tabcontainer[z] );
+      len            = tabcontainer.length;
+      
+  while(len--){
+    stabs( tabcontainer[len] );
   }
 })();
