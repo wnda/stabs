@@ -1,9 +1,9 @@
 <h2>What is stabs.js?</h2>
-<p>stabs.js is about 1.9 kilobytes of JavaScript for creating tabbed sections of your webpage.</p>
+<p>stabs.js is about <s>1.9</s> 3 kilobytes of JavaScript for creating tabbed sections of your webpage.</p>
 <p>It's not something I'm proud of. It's not the friendliest or the most modern approach.</p>
 <p>However, it is easy to use, you can customise how it works and it's pretty robust.</p>
 <h2>Why make this lib?</h2>
-<p>Bootstrap and other libraries/frameworks tend to require jQuery. Not surprising. My 50 lines of vanilla would probably be about 8 lines of jQuery.</p>
+<p>Bootstrap and other libraries/frameworks tend to require jQuery. Not surprising. My <s>50</s> 90 lines of vanilla would probably be about 8 lines of jQuery.</p>
 <p>However, it is 2016 and ES5/ES6 are gaining traction, and the ES3 that is actually supported in the real world is now largely standardised even in IE.</p>
 <p>There are of course some vanilla JS alternatives, but they all navigate to hash fragments in the URL bar, which is a feature I explicitly didn't want.</p>
 <p>I wanted something lean and robust.</p>
