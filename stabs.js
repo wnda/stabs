@@ -57,14 +57,14 @@
             y = j.indexOf('active');
         if(y !== -1) d[f].className = amendCSS(d[f].className,'active',false);
       }
-      if (c.className === 'tab' ) c.className = amendCSS(c.className,'active',true);
-      if (tabpanes[idx].className === 'tabpane') tabpanes[idx].className = amendCSS(tabpanes[idx].className,'active',true);
+      c.className = amendCSS(c.className,'active',true);
+      tabpanes[idx].className = amendCSS(tabpanes[idx].className,'active',true);
       if ( c.id && location.hash !== c.id ) location.hash = c.id;
     };
   };
   
   // event attacher
-  var stabsEvents = function(tabcontainer, config){
+  var stabsEvents = function(tabcontainer,config){
     var tab_selector = config && config.tab_selector || '.tab';
     var tabpane_selector = config && config.tabpane_selector || '.tabpane';
     var tabs = tabcontainer.querySelectorAll( tab_selector );
@@ -81,12 +81,12 @@
   window.stabs = function(config){
     var tabcontainer_selector = config && config.tabcontainer_selector || '.tabcontainer';
     var tabcontainers = document.querySelectorAll( tabcontainer_selector );
-    var len = tabcontainer.length;
+    var len = tabcontainers.length;
       
     while(len--){
       stabsEvents( tabcontainers[len], config );
     }
   };
   
-  stabs(); // insert config object if you want
+  return stabs(); // insert config object if you want
 })();
