@@ -15,13 +15,30 @@
     };
   }
 
-  function getSiblings( m ) {
+  var getSiblings = function( m ) {
     var r = [], n = m.parentNode.firstChild;
     for ( ; n; n = n.nextSibling ){
       if ( n.nodeType == 1 && n != m) r.push( n );
     }
     return r;
-  }
+  };
+  
+  var isInArray = function( arr, item ){
+    var len = arr.length;
+    while( len-- ) if ( item === arr[len] ) return true;
+    return false;
+  };
+
+  var amendCss = function( current_classname, class_to_toggle, add_class ){
+    var arr_classes   = current_classname.split(' '),
+        len           = current_classname.length,
+        l             = 0,
+        lacks_class   = !isInArray( arr_classes, class_to_toggle ),
+        new_classname = [];
+    for( ; len > l; l++ ){ arr_classes[l] !== class_to_toggle && new_classname.push( arr_classes[l] ); }
+    !!lacks_class && !!add_class && new_classname.push( class_to_toggle );
+    return (new_classname.join(' ')).trimRight();
+  };
   
   function stabs(t){
       var tabs     = t.querySelectorAll('.tab'),
@@ -41,12 +58,12 @@
               w = j.indexOf('tab'),
               y = j.indexOf('active');
   
-          if ( d[f] !== c && w !== -1 ) d[f].className = 'tab';
-          if ( d[f] !== c && v !== -1 && y !== -1 ) d[f].className = 'tabpane';
+          if ( d[f] !== c && w !== -1 ) d[f].className = amendCss(d[f].className,'active',false);
+          if ( d[f] !== c && v !== -1 && y !== -1 ) d[f].className = amendCss(d[f].className,'active',false);
       
         }
-        if (c.className === 'tab' ) c.className = 'tab active';
-        if (tabpanes[idx].className === 'tabpane') tabpanes[idx].className = 'tabpane active';
+        if (c.className === 'tab' ) c.className = amendCss(c.className,'active',true);
+        if (tabpanes[idx].className === 'tabpane') tabpanes[idx].className = amendCss(tabpanes[idx].className,'active',true);
       }
       
       while(a--){
