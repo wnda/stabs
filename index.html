@@ -30,14 +30,14 @@ if(window.location.host.indexOf("js.org"||"amdouglas.com"||"github.io")>-1&&wind
 <button id="tab4" class="tab" tabindex="0" role="tab" aria-controls="tabpane4" aria-selected="false">Using stabs</button>
 <button id="tab5" class="tab" tabindex="0" role="tab" aria-controls="tabpane5" aria-selected="false">FAQs</button>
   
-<div id="tabpane1" class="tabpane active" role="tabpanel" aria-labelledby="tab1" aria-hidden="false">
+<div id="tabpane1" class="tabpane active" role="tabpanel" aria-labelledby="tab1" aria-hidden="false" aria-visible="true">
 <h2>What is stabs.js?</h2>
 <p>stabs.js is a JavaScript module for creating tabbed sections in your webpage.</p>
 <p>The lib is just shy of 2.5 kilobytes in size, or 1 kilobyte when minified.</p>
 <p>It&rsquo;s not something I&rsquo;m proud of. It&rsquo;s not the friendliest or the most modern approach.</p>
 <p>However, it&rsquo;s easy to use, you can customise how it works, and it's pretty robust.</p>
 </div>
-<div id="tabpane2" class="tabpane" role="tabpanel" aria-labelledby="tab2" aria-hidden="true">
+<div id="tabpane2" class="tabpane" role="tabpanel" aria-labelledby="tab2" aria-hidden="true" aria-visible="false">
 <h2>Why make this lib?</h2>
 <p>Bootstrap and other libraries/frameworks tend to require jQuery. Not surprising. My 50 lines of vanilla would probably be about 8 lines of jQuery.</p>
 <p>However, it is 2016 and ES5/ES6 are gaining traction, and the ES3 that is actually supported in the real world is now largely standardised even in IE.</p>
@@ -45,7 +45,7 @@ if(window.location.host.indexOf("js.org"||"amdouglas.com"||"github.io")>-1&&wind
 <p>I wanted something lean and robust.</p>
 <p>Thus, stabs.js was born.</p>
 </div>
-<div id="tabpane3" class="tabpane" role="tabpanel" aria-labelledby="tab3" aria-hidden="true">
+<div id="tabpane3" class="tabpane" role="tabpanel" aria-labelledby="tab3" aria-hidden="true" aria-visible="false">
 <h2>How does it work?</h2>
 <p>stabs.js uses only vanilla JavaScript primarily relying on <code>for</code> loops and <code>classList</code>.</p>
 <p>This small lib loops through everything in the DOM and adds event listeners to everything that is a &ldquo;tab&rdquo; in a tabcontainer.</p>
@@ -53,7 +53,7 @@ if(window.location.host.indexOf("js.org"||"amdouglas.com"||"github.io")>-1&&wind
 <p>This might seem like cheating, but the approach could easily be adapted to manipulate styles directly. However, appending and removing classes is ultimately more efficient, and also enables the exact way tabs are displayed/hidden to be very flexible to the CSS-savvy dev.</p>
 <p>This is ultimately the simplest way to work with tabs.</p>
 </div>
-<div id="tabpane4" class="tabpane" role="tabpanel" aria-labelledby="tab4" aria-hidden="true">
+<div id="tabpane4" class="tabpane" role="tabpanel" aria-labelledby="tab4" aria-hidden="true" aria-visible="false">
 <h2>How does one use it?</h2>
 <p>Include <code>stabs.js</code> in your page and set up the markup as it is on this website:</p>
 <p>Then just make sure you have elements corresponding to your selectors. <strong>Only CSS classes are supported as selectors at the moment</strong>, and you should not include the periods/full-stops preceding the class names in your config object, as these are added automatically.</p>
@@ -61,7 +61,7 @@ if(window.location.host.indexOf("js.org"||"amdouglas.com"||"github.io")>-1&&wind
 <p>You need a containing element and the tabs and tabpanes must be children of the container, though they need not necessarily be immediate children.</p>
 <p>Passing in <code>true</code> for <code>addhash</code> enables hash fragments for your tabs if you want it.</p>
 </div>
-<div id="tabpane5" class="tabpane" role="tabpanel" aria-labelledby="tab5" aria-hidden="true">
+<div id="tabpane5" class="tabpane" role="tabpanel" aria-labelledby="tab5" aria-hidden="true" aria-visible="false">
 <h2>FAQs</h2>
 <details><summary>Can I nest tabs?</summary>Yes!</details>
 <details><summary>Who wrote this lib?</summary><a href="https://amdouglas.com">A. M. Douglas, a freelance web developer based in Leeds, UK.</a></details>
