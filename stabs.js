@@ -1,4 +1,4 @@
-;(function(){
+;(function(win,doc){
   'use strict';
   
   // https://gist.github.com/revolunet/1908355
@@ -41,26 +41,38 @@
               w = j.indexOf('tab'),
               y = j.indexOf('active');
   
-          if ( d[f] !== c && w !== -1 ) d[f].className = 'tab';
-          if ( d[f] !== c && v !== -1 && y !== -1 ) d[f].className = 'tabpane';
+          if ( d[f] !== c && w !== -1 ) {
+            d[f].className = 'tab';
+            d[f].setAttribute('aria-selected', 'false');
+          }
+          if ( d[f] !== c && v !== -1 && y !== -1 ){ 
+            d[f].className = 'tabpane';
+            d[f].setAttribute('aria-visible', 'true');
+          }
       
         }
-        if (c.className === 'tab' ) c.className = 'tab active';
-        if (tabpanes[idx].className === 'tabpane') tabpanes[idx].className = 'tabpane active';
+        if (c.className === 'tab' ) {
+          c.className = 'tab active';
+          c.setAttribute('aria-selected', 'true');
+        }
+        if (tabpanes[idx].className === 'tabpane') {
+          tabpanes[idx].className = 'tabpane active';
+          tabpanes[idx].setAttribute('aria-hidden','false');
+        }
       }
       
       while(a--){
-        if ( 'addEventListener' in window ) tabs[a].addEventListener( 'click', tabclick, false );
-        else if ( 'attachEvent' in window ) tabs[a].attachEvent( 'onclick', tabclick );
+        if ( 'addEventListener' in win ) tabs[a].addEventListener( 'click', tabclick, false );
+        else if ( 'attachEvent' in win ) tabs[a].attachEvent( 'onclick', tabclick );
         else tabs[a].onclick = tabclick;
       }
       
     }
   
-  var tabcontainer = document.querySelectorAll('.tabcontainer'),
+  var tabcontainer = doc.querySelectorAll('.tabcontainer'),
       z            = tabcontainer.length;
 
   while(z--){
     stabs( tabcontainer[z] );
   }
-})();
+})(window,window.document);
