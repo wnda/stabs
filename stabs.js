@@ -47,7 +47,8 @@
           }
           if ( d[f] !== c && v !== -1 && y !== -1 ){ 
             d[f].className = 'tabpane';
-            d[f].setAttribute('aria-visible', 'true');
+            d[f].setAttribute('aria-visible', 'false');
+            d[f].setAttribute('aria-hidden','true');
           }
       
         }
@@ -57,6 +58,7 @@
         }
         if (tabpanes[idx].className === 'tabpane') {
           tabpanes[idx].className = 'tabpane active';
+          tabpanes[idx].setAttribute('aria-visible', 'false');
           tabpanes[idx].setAttribute('aria-hidden','false');
         }
       }
@@ -70,7 +72,7 @@
     }
   
   var tabcontainer = doc.querySelectorAll('.tabcontainer'),
-      z            = tabcontainer.length;
+      z = tabcontainer.length;
 
   while(z--){
     stabs( tabcontainer[z] );
