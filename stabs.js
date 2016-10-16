@@ -58,7 +58,7 @@
         }
         if (tabpanes[idx].className === 'tabpane') {
           tabpanes[idx].className = 'tabpane active';
-          tabpanes[idx].setAttribute('aria-visible', 'false');
+          tabpanes[idx].setAttribute('aria-visible', 'true');
           tabpanes[idx].setAttribute('aria-hidden','false');
         }
       }
