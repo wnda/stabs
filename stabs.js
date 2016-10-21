@@ -27,16 +27,16 @@
   function tabclick( tabs, tabpanes ){
     return function( e ){
       var c = ( e.currentTarget || this );
-      var idx = [].indexOf.call(tabs, c);
-      var d = getSiblings(c);
-      var g = getSiblings(tabpanes[idx]);
+      var idx = [].indexOf.call( tabs, c );
+      var d = getSiblings( c );
+      var g = getSiblings( tabpanes[idx] );
       
       for ( var f = 0; f < d.length; ++f ) { 
         var j = d[f].className.split(' ');
   
-        if ( d[f] !== c && j.indexOf('tab') !== -1 && j.indexOf('active') !== -1) {
+        if ( d[f] !== c && j.indexOf('tab') !== -1 && j.indexOf('active') !== -1 ) {
           d[f].className = 'tab';
-          d[f].setAttribute('aria-selected', 'false');
+          d[f].setAttribute( 'aria-selected', 'false' );
         }   
       }
       
@@ -45,20 +45,20 @@
         
         if ( g[h] !== c && p.indexOf('tabpane') !== -1 && p.indexOf('active') !== -1 ){ 
           g[h].className = 'tabpane';
-          g[h].setAttribute('aria-visible', 'false');
-          g[h].setAttribute('aria-hidden','true');
+          g[h].setAttribute( 'aria-visible', 'false' );
+          g[h].setAttribute( 'aria-hidden', 'true' );
         }
       }
       
-      if (c.className === 'tab' ) {
+      if ( c.className === 'tab' ) {
         c.className = 'tab active';
-        c.setAttribute('aria-selected', 'true');
+        c.setAttribute( 'aria-selected', 'true' );
       }
       
-      if (tabpanes[idx].className === 'tabpane') {
+      if ( tabpanes[idx].className === 'tabpane' ) {
         tabpanes[idx].className = 'tabpane active';
-        tabpanes[idx].setAttribute('aria-visible', 'true');
-        tabpanes[idx].setAttribute('aria-hidden','false');
+        tabpanes[idx].setAttribute( 'aria-visible', 'true' );
+        tabpanes[idx].setAttribute( 'aria-hidden', 'false' );
       }
       
     };
