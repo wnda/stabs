@@ -24,7 +24,7 @@
     return r;
   }
   
-  function tabclick( tabs, tabpanes ){
+  function tabClicked( tabs, tabpanes ){
     return function( e ){
       var c = ( e.currentTarget || this );
       var idx = [].indexOf.call( tabs, c );
@@ -65,7 +65,7 @@
     
   }
   
-  function stabs( t ) {
+  function setupTabs( t ) {
     var tabs     = t.querySelectorAll('.tab');
     var tabpanes = t.querySelectorAll('.tabpane');
     
@@ -73,13 +73,13 @@
     
     for( var i = 0; i < tabs.length; ++i ) {
       if ( 'addEventListener' in win ) 
-        tabs[i].addEventListener( 'click', tabclick( tabs, tabpanes ), false );
+        tabs[i].addEventListener( 'click', tabClicked( tabs, tabpanes ), false );
       
       else if ( 'attachEvent' in win ) 
-        tabs[i].attachEvent( 'onclick', tabclick( tabs, tabpanes ) );
+        tabs[i].attachEvent( 'onclick', tabClicked( tabs, tabpanes ) );
       
       else 
-        tabs[i].onclick = tabclick( tabs, tabpanes );
+        tabs[i].onclick = tabClicked( tabs, tabpanes );
     }
       
   }
@@ -87,6 +87,6 @@
   var tabcontainers = doc.querySelectorAll('.tabcontainer');
   
   for ( var z = 0; z < tabcontainers.length; ++z )
-    stabs( tabcontainers[z] );
+    setupTabs( tabcontainers[z] );
   
 })( window, window.document );
