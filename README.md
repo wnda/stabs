@@ -33,4 +33,5 @@ You need a containing element and the tabs and tabpanes must be children of the 
 stabs supports nested tabs. This is achieved using 'indexOf' which is polyfilled within.
 
 Demo 1 (home page)    : https://stabs.js.org
+
 Demo 2 (nesting tabs) : https://output.jsbin.com/hosomi/31
