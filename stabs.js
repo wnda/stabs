@@ -29,8 +29,8 @@
   }
   
   function tabclick( tabs, a, tabpanes, b){
-    return function(){
-      var c = this;
+    return function(e){
+      var c = ( e.currentTarget || this );
       var d = getSiblings(c);
       var f = d.length;
       var idx = [].indexOf.call(tabs, c);
