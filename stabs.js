@@ -34,23 +34,29 @@
       var d = getSiblings(c);
       var f = d.length;
       var idx = [].indexOf.call(tabs, c);
-
+      var g = getSiblings(tabpanes[idx]);
+      var h = g.length;
+      
       while ( f-- ) {
         var j = d[f].className.split(' ');
-        var v = j.indexOf('tabpane');
         var w = j.indexOf('tab');
         var y = j.indexOf('active');
   
         if ( d[f] !== c && w !== -1 ) {
           d[f].className = 'tab';
           d[f].setAttribute('aria-selected', 'false');
-        }
-        
-        if ( d[f] !== c && v !== -1 && y !== -1 ){ 
-          d[f].className = 'tabpane';
-          d[f].setAttribute('aria-visible', 'false');
-          d[f].setAttribute('aria-hidden','true');
         }   
+      }
+      
+      while(h--){
+        var p = g[h].className.split(' ');
+        var q = p.indexOf('tabpane');
+        var r = p.indexOf('active');
+        if ( g[h] !== c && q !== -1 && r !== -1 ){ 
+          g[h].className = 'tabpane';
+          g[h].setAttribute('aria-visible', 'false');
+          g[h].setAttribute('aria-hidden','true');
+        }
       }
       
       if (c.className === 'tab' ) {
