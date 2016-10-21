@@ -3,8 +3,8 @@
   'use strict';
   
   // https://gist.github.com/revolunet/1908355
-  if ( !( 'indexOf' in [] ) ) {
-    Array.prototype.indexOf = function( el ) {
+  if (!('indexOf' in [])){
+    Array.prototype.indexOf = function(el){
       var len = this.length >>> 0;
       var from = Number(arguments[1]) || 0;
       from = (from < 0) ? Math.ceil(from) : Math.floor(from);      
@@ -35,7 +35,7 @@
       for ( var f = 0; f < d.length; ++f ) { 
         var j = d[f].className.split(' ');
   
-        if ( d[f] !== c && j.indexOf('tab') !== -1 && j.indexOf('active') !== -1 ) {
+        if ( d[f] !== c && j.indexOf( 'tab' ) !== -1 && j.indexOf( 'active' ) !== -1 ) {
           d[f].className = 'tab';
           d[f].setAttribute( 'aria-selected', 'false' );
         }   
@@ -44,7 +44,7 @@
       for ( var h = 0; h < g.length; ++h ) {
         var p = g[h].className.split(' ');
         
-        if ( g[h] !== c && p.indexOf('tabpane') !== -1 && p.indexOf('active') !== -1 ){ 
+        if ( g[h] !== c && p.indexOf( 'tabpane' ) !== -1 && p.indexOf( 'active' ) !== -1 ){ 
           g[h].className = 'tabpane';
           g[h].setAttribute( 'aria-visible', 'false' );
           g[h].setAttribute( 'aria-hidden', 'true' );
