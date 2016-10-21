@@ -31,28 +31,25 @@
   function tabclick( tabs, a, tabpanes, b){
     return function(e){
       var c = ( e.currentTarget || this );
+      var idx = [].indexOf.call(tabs, c);
       var d = getSiblings(c);
       var f = d.length;
-      var idx = [].indexOf.call(tabs, c);
       var g = getSiblings(tabpanes[idx]);
       var h = g.length;
       
       while ( f-- ) {
         var j = d[f].className.split(' ');
-        var w = j.indexOf('tab');
-        var y = j.indexOf('active');
   
-        if ( d[f] !== c && w !== -1 ) {
+        if ( d[f] !== c && j.indexOf('tab') !== -1 && j.indexOf('active') !== -1) {
           d[f].className = 'tab';
           d[f].setAttribute('aria-selected', 'false');
         }   
       }
       
-      while(h--){
+      while ( h-- ) {
         var p = g[h].className.split(' ');
-        var q = p.indexOf('tabpane');
-        var r = p.indexOf('active');
-        if ( g[h] !== c && q !== -1 && r !== -1 ){ 
+        
+        if ( g[h] !== c && p.indexOf('tabpane') !== -1 && p.indexOf('active') !== -1 ){ 
           g[h].className = 'tabpane';
           g[h].setAttribute('aria-visible', 'false');
           g[h].setAttribute('aria-hidden','true');
