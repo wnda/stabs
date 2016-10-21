@@ -20,7 +20,7 @@
   function getSiblings( m ) {
     var r = [], n = m.parentNode.firstChild;
     for ( ; n; n = n.nextSibling )
-      if ( n.nodeType === 1 && n !== m) 
+      if ( n.nodeType === 1 && n !== m )
         r.push( n );
     return r;
   }
@@ -72,7 +72,7 @@
     
     if ( tabs.length !== tabpanes.length ) return;
     
-    for( var i = 0; i < tabs.length; ++i ) {
+    for ( var i = 0; i < tabs.length; ++i ) {
       if ( 'addEventListener' in win ) 
         tabs[i].addEventListener( 'click', tabClicked( tabs, tabpanes ), false );
       
