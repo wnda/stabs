@@ -2,7 +2,7 @@
   'use strict';
   
   // https://gist.github.com/revolunet/1908355
-  if (!Array.prototype.indexOf) {
+  if (!('indexOf' in [])) {
     Array.prototype.indexOf = function( el ) {
       var len = this.length >>> 0;
       var from = Number(arguments[1]) || 0;
@@ -29,7 +29,7 @@
   }
   
   function tabclick( tabs, a, tabpanes, b){
-    return function(e){
+    return function( e ){
       var c = ( e.currentTarget || this );
       var idx = [].indexOf.call(tabs, c);
       var d = getSiblings(c);
@@ -79,13 +79,13 @@
     
     while ( a-- ) {
       if ( 'addEventListener' in win ) 
-        tabs[a].addEventListener( 'click', tabclick(tabs,a,tabpanes,b), false );
+        tabs[a].addEventListener( 'click', tabclick( tabs, a, tabpanes, b ), false );
       
       else if ( 'attachEvent' in win ) 
-        tabs[a].attachEvent( 'onclick', tabclick(tabs,a,tabpanes,b) );
+        tabs[a].attachEvent( 'onclick', tabclick( tabs, a, tabpanes, b ) );
       
       else 
-        tabs[a].onclick = tabclick(tabs,a,tabpanes,b);
+        tabs[a].onclick = tabclick( tabs, a, tabpanes, b );
     }
       
   }
