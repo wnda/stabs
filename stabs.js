@@ -23,13 +23,8 @@
     return r;
   }
   
-  function stabs(t){
-      var tabs     = t.querySelectorAll('.tab'),
-          a        = tabs.length,
-          tabpanes = t.querySelectorAll('.tabpane'),
-          b        = tabpanes.length;
-          
-      function tabclick(){
+  function tabclick(tabs,a,tabpanes,b){
+    return function(){
         var c = this;
         var d = getSiblings(c);
         var f = d.length;
@@ -61,12 +56,19 @@
           tabpanes[idx].setAttribute('aria-visible', 'true');
           tabpanes[idx].setAttribute('aria-hidden','false');
         }
-      }
-      
+      };
+  }
+  
+  function stabs(t){
+      var tabs     = t.querySelectorAll('.tab'),
+          a        = tabs.length,
+          tabpanes = t.querySelectorAll('.tabpane'),
+          b        = tabpanes.length;
+    
       while(a--){
-        if ( 'addEventListener' in win ) tabs[a].addEventListener( 'click', tabclick, false );
-        else if ( 'attachEvent' in win ) tabs[a].attachEvent( 'onclick', tabclick );
-        else tabs[a].onclick = tabclick;
+        if ( 'addEventListener' in win ) tabs[a].addEventListener( 'click', tabclick(tabs,a,tabpanes,b), false );
+        else if ( 'attachEvent' in win ) tabs[a].attachEvent( 'onclick', tabclick(tabs,a,tabpanes,b) );
+        else tabs[a].onclick = tabclick(tabs,a,tabpanes,b);
       }
       
     }
