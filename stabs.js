@@ -30,30 +30,26 @@
 
   function tabClicked( tabs, tabpanes ){
     return function( e ){
+      typeof e !== 'undefined' && e.preventDefault();
       var c = ( e.currentTarget || this );
       var idx = [].indexOf.call( tabs, c );
       var d = getSiblings( c );
       var g = getSiblings( tabpanes[idx] );
-
       for ( var f = 0; f < d.length; ++f ) {
         var j = d[f].className;
-
         if ( d[f] !== c && j.split(' ').indexOf( 'tab' ) !== -1 && j.split(' ').indexOf( 'active' ) !== -1 ) {
           d[f].className = amendCSS( j, 'active', !1 );
           d[f].setAttribute( 'aria-selected', 'false' );
         }
       }
-
       for ( var h = 0; h < g.length; ++h ) {
         var p = g[h].className;
-
         if ( g[h] !== c && p.split(' ').indexOf( 'tabpane' ) !== -1 && p.split(' ').indexOf( 'active' ) !== -1 ){
           g[h].className = amendCSS( p, 'active', !1 );
           g[h].setAttribute( 'hidden', 'true' );
           g[h].setAttribute( 'aria-hidden', 'true' );
         }
       }
-
       c.className = amendCSS( c.className, 'active', !0 );
       c.setAttribute( 'aria-selected', 'true' );      
       tabpanes[idx].className = amendCSS( tabpanes[idx].className, 'active', !0 );
@@ -63,21 +59,17 @@
   }
 
   function setupTabs( t ) {
-    var tabs     = t.querySelectorAll('.tab');
+    var tabs = t.querySelectorAll('.tab');
     var tabpanes = t.querySelectorAll('.tabpane');
-
     if ( tabs.length !== tabpanes.length ) return;
-
     for ( var i = 0; i < tabs.length; ++i ) {
       if ( 'addEventListener' in win ) tabs[i].addEventListener( 'click', tabClicked( tabs, tabpanes ), false );
       else if ( 'attachEvent' in win ) tabs[i].attachEvent( 'onclick', tabClicked( tabs, tabpanes ) );
       else tabs[i].onclick = tabClicked( tabs, tabpanes );
     }
-
   }
 
   var tabcontainers = doc.querySelectorAll('.tabcontainer');
-
   for ( var z = 0; z < tabcontainers.length; ++z ) setupTabs( tabcontainers[z] );
 
 })( window, window.document );
