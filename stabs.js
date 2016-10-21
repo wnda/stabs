@@ -2,8 +2,8 @@
   'use strict';
   
   // https://gist.github.com/revolunet/1908355
-  if (!Array.prototype.indexOf){
-    Array.prototype.indexOf = function(el){
+  if (!Array.prototype.indexOf) {
+    Array.prototype.indexOf = function( el ) {
       var len = this.length >>> 0;
       var from = Number(arguments[1]) || 0;
       
@@ -28,14 +28,14 @@
     return r;
   }
   
-  function tabclick(tabs,a,tabpanes,b){
+  function tabclick( tabs, a, tabpanes, b){
     return function(){
       var c = this;
       var d = getSiblings(c);
       var f = d.length;
       var idx = [].indexOf.call(tabs, c);
 
-      while(f--){
+      while ( f-- ) {
         var j = d[f].className.split(' ');
         var v = j.indexOf('tabpane');
         var w = j.indexOf('tab');
@@ -68,13 +68,13 @@
     
   }
   
-  function stabs(t){
+  function stabs(t) {
     var tabs     = t.querySelectorAll('.tab');
     var a        = tabs.length;
     var tabpanes = t.querySelectorAll('.tabpane');
     var b        = tabpanes.length;
     
-    while(a--){
+    while ( a-- ) {
       if ( 'addEventListener' in win ) 
         tabs[a].addEventListener( 'click', tabclick(tabs,a,tabpanes,b), false );
       
@@ -90,7 +90,7 @@
   var tabcontainer = doc.querySelectorAll('.tabcontainer');
   var z = tabcontainer.length;
 
-  while(z--)
+  while ( z-- )
     stabs( tabcontainer[z] );
   
 })(window,window.document);
