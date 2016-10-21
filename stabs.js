@@ -1,8 +1,9 @@
-;(function(win,doc){
+;( function( win, doc ){
+  
   'use strict';
   
   // https://gist.github.com/revolunet/1908355
-  if (!('indexOf' in [])) {
+  if ( !( 'indexOf' in [] ) ) {
     Array.prototype.indexOf = function( el ) {
       var len = this.length >>> 0;
       var from = Number(arguments[1]) || 0;
