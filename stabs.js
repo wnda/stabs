@@ -6,11 +6,8 @@
     Array.prototype.indexOf = function( el ) {
       var len = this.length >>> 0;
       var from = Number(arguments[1]) || 0;
-      
-      from = (from < 0) ? Math.ceil(from) : Math.floor(from);
-      
-      if (from < 0) from += len;
-      
+      from = (from < 0) ? Math.ceil(from) : Math.floor(from);      
+      if (from < 0) from += len;      
       for (; from < len; from++)
         if (from in this && this[from] === el) 
           return from;
@@ -21,23 +18,20 @@
 
   function getSiblings( m ) {
     var r = [], n = m.parentNode.firstChild;
-    
     for ( ; n; n = n.nextSibling )
-      if ( n.nodeType == 1 && n != m) r.push( n );
-    
+      if ( n.nodeType == 1 && n != m) 
+        r.push( n );
     return r;
   }
   
-  function tabclick( tabs, a, tabpanes, b){
+  function tabclick( tabs, tabpanes ){
     return function( e ){
       var c = ( e.currentTarget || this );
       var idx = [].indexOf.call(tabs, c);
       var d = getSiblings(c);
-      var f = d.length;
       var g = getSiblings(tabpanes[idx]);
-      var h = g.length;
       
-      while ( f-- ) {
+      for ( var f = 0; f < d.length; ++f ) { 
         var j = d[f].className.split(' ');
   
         if ( d[f] !== c && j.indexOf('tab') !== -1 && j.indexOf('active') !== -1) {
@@ -46,7 +40,7 @@
         }   
       }
       
-      while ( h-- ) {
+      for ( var h = 0; h < g.length; ++h ) {
         var p = g[h].className.split(' ');
         
         if ( g[h] !== c && p.indexOf('tabpane') !== -1 && p.indexOf('active') !== -1 ){ 
@@ -71,29 +65,28 @@
     
   }
   
-  function stabs(t) {
+  function stabs( t ) {
     var tabs     = t.querySelectorAll('.tab');
-    var a        = tabs.length;
     var tabpanes = t.querySelectorAll('.tabpane');
-    var b        = tabpanes.length;
     
-    while ( a-- ) {
+    if ( tabs.length !== tabpanes.length ) return;
+    
+    for( var i = 0; i < tabs.length; ++i ) {
       if ( 'addEventListener' in win ) 
-        tabs[a].addEventListener( 'click', tabclick( tabs, a, tabpanes, b ), false );
+        tabs[i].addEventListener( 'click', tabclick( tabs, tabpanes ), false );
       
       else if ( 'attachEvent' in win ) 
-        tabs[a].attachEvent( 'onclick', tabclick( tabs, a, tabpanes, b ) );
+        tabs[i].attachEvent( 'onclick', tabclick( tabs, tabpanes ) );
       
       else 
-        tabs[a].onclick = tabclick( tabs, a, tabpanes, b );
+        tabs[i].onclick = tabclick( tabs, tabpanes );
     }
       
   }
   
-  var tabcontainer = doc.querySelectorAll('.tabcontainer');
-  var z = tabcontainer.length;
-
-  while ( z-- )
-    stabs( tabcontainer[z] );
+  var tabcontainers = doc.querySelectorAll('.tabcontainer');
   
-})(window,window.document);
+  for ( var z = 0; z < tabcontainers.length; ++z )
+    stabs( tabcontainers[z] );
+  
+})( window, window.document );
