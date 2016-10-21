@@ -46,7 +46,7 @@
         
         if ( g[h] !== c && p.indexOf( 'tabpane' ) !== -1 && p.indexOf( 'active' ) !== -1 ){ 
           g[h].className = 'tabpane';
-          g[h].setAttribute( 'aria-visible', 'false' );
+          g[h].setAttribute( 'hidden', 'true' );
           g[h].setAttribute( 'aria-hidden', 'true' );
         }
       }
@@ -58,7 +58,7 @@
       
       if ( tabpanes[idx].className === 'tabpane' ) {
         tabpanes[idx].className = 'tabpane active';
-        tabpanes[idx].setAttribute( 'aria-visible', 'true' );
+        tabpanes[idx].removeAttribute( 'hidden' );
         tabpanes[idx].setAttribute( 'aria-hidden', 'false' );
       }
       
