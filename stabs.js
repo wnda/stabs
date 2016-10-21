@@ -9,31 +9,23 @@
       var from = Number(arguments[1]) || 0;
       from = (from < 0) ? Math.ceil(from) : Math.floor(from);
       if (from < 0) from += len;
-      for (; from < len; from++)
-        if (from in this && this[from] === el)
-          return from;
-
+      for (; from < len; from++) if (from in this && this[from] === el) return from;
       return -1;
     };
   }
 
   function getSiblings( m ) {
     var r = [], n = m.parentNode.firstChild;
-    for ( ; n; n = n.nextSibling )
-      if ( n.nodeType === 1 && n !== m )
-        r.push( n );
+    for ( ; n; n = n.nextSibling ) if ( n.nodeType === 1 && n !== m ) r.push( n );
     return r;
   }
   
   function amendCSS( classes, new_class, add_flag ){
     var old_arr = classes.split(' ');
     var new_arr = [];
-    for ( var l = 0; l < old_arr.length; ++l )
-      if( old_arr[l].trim() !== new_class )
-        new_arr[l] = old_arr[l].trim();
-    if ( add_flag )
-      new_arr.push( new_class );
-    return (classes === new_arr.join(' ') ? classes : new_arr.join(' '));
+    for ( var l = 0; l < old_arr.length; ++l ) if ( old_arr[l].trim() !== new_class ) new_arr[l] = old_arr[l].trim();
+    if ( add_flag ) new_arr.push( new_class );
+    return ( classes === new_arr.join(' ') ? classes : new_arr.join(' ') );
   }
 
   function tabClicked( tabs, tabpanes ){
@@ -77,21 +69,15 @@
     if ( tabs.length !== tabpanes.length ) return;
 
     for ( var i = 0; i < tabs.length; ++i ) {
-      if ( 'addEventListener' in win )
-        tabs[i].addEventListener( 'click', tabClicked( tabs, tabpanes ), false );
-
-      else if ( 'attachEvent' in win )
-        tabs[i].attachEvent( 'onclick', tabClicked( tabs, tabpanes ) );
-
-      else
-        tabs[i].onclick = tabClicked( tabs, tabpanes );
+      if ( 'addEventListener' in win ) tabs[i].addEventListener( 'click', tabClicked( tabs, tabpanes ), false );
+      else if ( 'attachEvent' in win ) tabs[i].attachEvent( 'onclick', tabClicked( tabs, tabpanes ) );
+      else tabs[i].onclick = tabClicked( tabs, tabpanes );
     }
 
   }
 
   var tabcontainers = doc.querySelectorAll('.tabcontainer');
 
-  for ( var z = 0; z < tabcontainers.length; ++z )
-    setupTabs( tabcontainers[z] );
+  for ( var z = 0; z < tabcontainers.length; ++z ) setupTabs( tabcontainers[z] );
 
 })( window, window.document );
