@@ -22,13 +22,12 @@ void function (win, doc) {
   
   function tabClicked (tabs, tabpanes) {
     return function(e) {
-      var c = (e.target || this), b, d, f, g, h;
+      var b = (e.target || this), c, d, f, g, h;
       
-      switch (c.classList.contains('tab')) {
+      switch (b.classList.contains('tab')) {
         case true:
-          b = tabpanes[([].indexOf.call(tabs, c))]; 
-          d = getSiblings(c); f = 0; 
-          g = getSiblings(b); h = 0;
+          c = tabpanes[([].indexOf.call(tabs, b))]; 
+          d = 0; f = getSiblings(b); g = getSiblings(c);
           break;
         default:
           return;
@@ -38,27 +37,24 @@ void function (win, doc) {
         e.preventDefault();
       }
       
-      for (; f < d.length; ++f) {
-        if (d[f] !== c && d[f].classList.contains('tab') && d[f].classList.contains('active')) {
-          d[f].classList.remove('active');
-          d[f].setAttribute( 'aria-selected', 'false' );
+      for (; d < f.length; ++d) {
+        if (f[d] !== b && f[d].classList.contains('tab') && f[d].classList.contains('active')) {
+          f[d].classList.remove('active');
+          f[d].setAttribute( 'aria-selected', 'false' );
+        }
+        if (g[d] !== b && g[d].classList.contains('tabpane') && g[d].classList.contains('active')) {
+          g[d].classList.remove('active');
+          g[d].setAttribute('hidden', 'true');
+          g[d].setAttribute('aria-hidden', 'true');
         }
       }
-      
-      for (; h < g.length; ++h) {
-        if (g[h] !== c && g[h].classList.contains('tabpane') && g[h].classList.contains('active')) {
-          g[h].classList.remove('active');
-          g[h].setAttribute('hidden', 'true');
-          g[h].setAttribute('aria-hidden', 'true');
-        }
-      }
-      
-      c.classList.add('active');
-      c.setAttribute('aria-selected', 'true');
       
       b.classList.add('active');
-      b.removeAttribute('hidden');
-      b.setAttribute('aria-hidden', 'false');
+      b.setAttribute('aria-selected', 'true');
+      
+      c.classList.add('active');
+      c.removeAttribute('hidden');
+      c.setAttribute('aria-hidden', 'false');
     };
   }
   
