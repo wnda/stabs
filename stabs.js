@@ -1,8 +1,7 @@
 void function (win, doc) {
   'use strict';
   
-  var tabcontainers = doc.querySelectorAll('.tabcontainer');
-  var z = 0;
+  var tabcontainers = doc.querySelectorAll('.tabcontainer'), z = 0;
   
   for (; z < tabcontainers.length; ++z) {
     setupTabs(tabcontainers[z]);
@@ -12,23 +11,24 @@ void function (win, doc) {
     var tabs = t.querySelectorAll('.tab');
     var tabpanes = t.querySelectorAll('.tabpane');
     
-    if ('addEventListener' in win && tabs.length === tabpanes.length) { 
-      t.addEventListener('click', tabClicked(tabs, tabpanes), false); 
+    switch ('addEventListener' in win && tabs.length === tabpanes.length) {
+      case true:
+        t.addEventListener('click', tabClicked(tabs, tabpanes), false);
+        break;
+      default:
+        return;
     }
   }
   
   function tabClicked (tabs, tabpanes) {
     return function(e) {
-      var c = (e.target || this);
-      var b, d, f, g, h;
+      var c = (e.target || this), b, d, f, g, h;
       
       switch (c.classList.contains('tab')) {
         case true:
           b = tabpanes[([].indexOf.call(tabs, c))]; 
-          d = getSiblings(c); 
-          g = getSiblings(b);
-          f = 0; 
-          h = 0;
+          d = getSiblings(c); f = 0; 
+          g = getSiblings(b); h = 0;
           break;
         default:
           return;
