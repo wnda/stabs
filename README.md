@@ -1,5 +1,5 @@
 ## What is stabs.js?
-stabs.js is near enough 3 kilobytes of JavaScript for creating tabbed sections of your webpage.
+stabs.js is near enough 2 (or 3 if you want IE8 support) kilobytes of JavaScript for creating tabbed sections of your webpage.
 
 It's not something I'm especially proud of. It's not the friendliest or the most modern approach.
 
@@ -30,7 +30,7 @@ Include stabs.js in your page and make sure you have elements corresponding to t
 
 You need a containing element and the tabs and tabpanes must be children of the container, though they need not necessarily be immediate children.
 
-stabs supports nested tabs. This is achieved using 'indexOf' which is polyfilled within.
+stabs supports nested tabs. This is achieved using 'indexOf' which is polyfilled within the IE8 standalone lib.
 
 Demo 1 (home page)    : https://stabs.js.org
 
