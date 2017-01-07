@@ -33,7 +33,7 @@
           return;
       }
       
-      if (e !== void 0) {
+      if (typeof e !== 'undefined') {
         e.preventDefault();
       }
       
