@@ -40,7 +40,7 @@
       for (; d < f.length; ++d) {
         if (f[d] !== b && f[d].classList.contains('tab') && f[d].classList.contains('active')) {
           f[d].classList.remove('active');
-          f[d].setAttribute( 'aria-selected', 'false' );
+          f[d].setAttribute('aria-selected', 'false');
         }
         if (g[d] !== b && g[d].classList.contains('tabpane') && g[d].classList.contains('active')) {
           g[d].classList.remove('active');
