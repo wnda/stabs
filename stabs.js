@@ -1,4 +1,4 @@
-void function (win, doc) {
+;(function (win, doc) {
   'use strict';
   
   var tabcontainers = doc.querySelectorAll('.tabcontainer'), z = 0;
@@ -69,4 +69,4 @@ void function (win, doc) {
     return r;
   }
 
-}(window, window.document);
+})(window, window.document);
